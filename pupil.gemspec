@@ -20,11 +20,14 @@ Gem::Specification.new do |s|
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
     "lib/pupil.rb",
+    "lib/pupil/keygen.rb",
+    "pupil.gemspec",
     "spec/pupil_spec.rb",
     "spec/spec_helper.rb"
   ]

@@ -1,6 +1,6 @@
 = pupil
 
-Description goes here.
+Pupil is lazy Twitter API Wrapper for Ruby 1.9.x
 
 == Contributing to pupil
  

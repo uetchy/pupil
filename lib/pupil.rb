@@ -7,6 +7,9 @@ require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'oauth'
 #require 'pp'
 
+$LOAD_PATH << File.dirname(File.expand_path(__FILE__)) if RUBY_VERSION >= '1.9.0'
+require 'pupil/keygen'
+
 class Pupil
   attr_reader :screen_name
   
@@ -75,7 +78,7 @@ class Pupil
       return self.root.get_text("error")
     end
   end
-
+  
   public
   
   # @return [Hash] user profile

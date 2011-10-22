@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "pupil"
-  s.version = "0.0.5"
+  s.version = "0.0.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oame"]
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "lib/pupil.rb",
     "lib/pupil/keygen.rb",
     "pupil.gemspec",
+    "samples/ff-dumper.rb",
     "samples/generate-key.rb",
     "spec/pupil_spec.rb",
     "spec/spec_helper.rb"

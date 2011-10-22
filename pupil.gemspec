@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{pupil}
-  s.version = "0.0.4"
+  s.name = "pupil"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Oame}]
-  s.date = %q{2011-10-10}
-  s.description = %q{The "Lazy" Twitter API wrapper for Ruby. It was made for Kbot library.}
-  s.email = %q{oame@oameya.com}
+  s.authors = ["Oame"]
+  s.date = "2011-10-22"
+  s.description = "The \"Lazy\" Twitter API Wrapper for Ruby 1.9.2"
+  s.email = "oame@oameya.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -28,14 +28,15 @@ Gem::Specification.new do |s|
     "lib/pupil.rb",
     "lib/pupil/keygen.rb",
     "pupil.gemspec",
+    "samples/generate-key.rb",
     "spec/pupil_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/oame/pupil}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.5}
-  s.summary = %q{The Twitter API Wrapper for Ruby}
+  s.homepage = "http://github.com/oame/pupil"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.10"
+  s.summary = "The \"Lazy\" Twitter API Wrapper for Ruby"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

@@ -16,3 +16,14 @@ describe Pupil, "が #home_timeline を呼ぶ時は" do
     @home_timeline.class.should == Array
   end
 end
+
+describe Pupil, "が #mentions を呼ぶ時は" do
+  before do
+    pupil = Pupil.new PUPIL_TESTKEY
+    @mentions = pupil.mentions
+  end
+  
+  it "Array型を返すこと" do
+    @mentions.class.should == Array
+  end
+end

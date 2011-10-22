@@ -54,6 +54,7 @@ class Pupil
       puts "Process complete!"
       puts "Access token: #{access_token.token}"
       puts "Access token secret: #{access_token.secret}"
+      return {:access_token => access_token.token, :access_token_secret => access_token.secret}
     end
   end
 end

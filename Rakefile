@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "pupil"
   gem.homepage = "http://github.com/oame/pupil"
   gem.license = "MIT"
-  gem.summary = %Q{The Twitter API Wrapper for Ruby}
-  gem.description = %Q{The "Lazy" Twitter API wrapper for Ruby 1.9.2}
+  gem.summary = %Q{The "Lazy" Twitter API Wrapper for Ruby}
+  gem.description = %Q{The "Lazy" Twitter API Wrapper for Ruby 1.9.2}
   gem.email = "oame@oameya.com"
   gem.authors = ["Oame"]
   # dependencies defined in Gemfile

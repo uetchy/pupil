@@ -12,7 +12,6 @@ require 'pupil/keygen'
 
 class Pupil
   attr_reader :screen_name
-  
   class UnsupportedParameter < StandardError; end
   
   # @param [Hash] pupil_key
@@ -33,7 +32,7 @@ class Pupil
   end
   
   # @param [Hash] parameter
-  # @return [String] serialized parameters
+  # @return [String] URL Serialized parameters
   def param_serializer parameter
     ant = Hash.new
     parameter.each do |key, value|
@@ -81,7 +80,7 @@ class Pupil
   
   public
   
-  # @return [Hash] user profile
+  # @return [Hash] User credentials
   def verify_credentials
     response = @access_token.get('/account/verify_credentials.xml')
     doc = REXML::Document.new(response.body)
@@ -90,8 +89,9 @@ class Pupil
     return user
   end
   
+  # Alias to Pupil#home_timeline
   # @param [Hash] param
-  # @return [Hash] alias to Pupil#home_timeline
+  # @return [Array] Timeline
   # @deprecated Use {#home_timeline} instead of this method because
   #   is was obsoleted.
   def friends_timeline(param = {})
@@ -114,7 +114,7 @@ class Pupil
   end
   
   # @param [Hash] param
-  # @return [Array] timeline
+  # @return [Array] Timeline
   def home_timeline(param = {})
     param_s = param_serializer(param)
     begin
@@ -132,6 +132,7 @@ class Pupil
     return statuses
   end
   
+  # Returning user timeline
   # @param [Hash] param
   # @return [Hash] timeline
   # @option param [Fixnum] :user_id The ID of user
@@ -141,12 +142,12 @@ class Pupil
   # @option param [Fixnum] :count
   # @option param [Fixnum] :page Specifies
   # @option param [Symbol] :trim_user
-  # @option param [Symbol] :include => :rts
-  # @option param [Symbol] :exclude => :replies
+  # @option param [Symbol] :include #=> [:rts]
+  # @option param [Symbol] :exclude #=> [:replies]
   # @option param [Symbol] :contributor_details
   # @example
   #   twitter = Pupil.new PUPIL_KEY
-  #   twitter.user_timeline(:screen_name => 'o_ame', :exclude_replies => :true).each do |status|
+  #   twitter.user_timeline(:screen_name => 'o_ame', :exclude => :replies).each do |status|
   #     puts "#{status.user.screen_name}: #{status.text}"
   #   end
   def user_timeline(param = {})
@@ -187,6 +188,7 @@ class Pupil
     return statuses
   end
   
+  # Returning direct messages
   # @param [Hash] param
   # @return [Hash] directmessages
   def dm(param = {})
@@ -208,6 +210,7 @@ class Pupil
     return directmessages
   end
   
+  # Returning direct messages you sent
   # @param [Hash] param
   # @return [Hash] directmessage you sent
   def dm_sent(param = {})
@@ -229,6 +232,7 @@ class Pupil
     return directmessages
   end
   
+  # Delete direct message
   # @param [Fixnum] dm_id message id that you want to delete
   # @return [Hash] response
   def dm_destroy(dm_id)
@@ -240,6 +244,7 @@ class Pupil
     return response
   end
   
+  # Check friendships
   # @param [String] src source user
   # @param [String] dst destination user
   # @return [Boolean] return true if paired users have friendship, or ruturn false
@@ -258,6 +263,7 @@ class Pupil
     end
   end
   
+  # Follow user for screen_name
   # @param [String] name screen_name
   # @return [Hash] response
   def follow name
@@ -269,6 +275,7 @@ class Pupil
     return response
   end
   
+  # Unfollow user for screen_name
   # @param [String] name screen_name
   # @return [Hash] response
   def unfollow name

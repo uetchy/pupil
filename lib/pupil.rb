@@ -1,36 +1,36 @@
 # -*- coding: utf-8 -*-
 
-require 'net/http'
-require 'rexml/document'
-require 'uri'
-require 'rubygems' if RUBY_VERSION < '1.9.0'
-require 'oauth'
-#require 'pp'
+require "net/http"
+require "rexml/document"
+require "uri"
+require "rubygems" if RUBY_VERSION < "1.9.0"
+require "oauth"
+#require "pp"
 
-$LOAD_PATH << File.dirname(File.expand_path(__FILE__)) if RUBY_VERSION >= '1.9.0'
-require 'pupil/keygen'
+$LOAD_PATH << File.dirname(File.expand_path(__FILE__)) if RUBY_VERSION >= "1.9.0"
+require "pupil/keygen"
 
 class Pupil
   attr_reader :screen_name
   class UnsupportedParameter < StandardError; end
-  
+
   # @param [Hash] pupil_key
   def initialize(pupil_key)
     @screen_name = pupil_key[:screen_name]
     @client = nil
     @config = nil
     consumer = OAuth::Consumer.new(
-      pupil_key[:consumer_key],
-      pupil_key[:consumer_secret],
-      :site => 'http://api.twitter.com'
+    pupil_key[:consumer_key],
+    pupil_key[:consumer_secret],
+    :site => "http://api.twitter.com"
     )
     @access_token = OAuth::AccessToken.new(
-      consumer,
-      pupil_key[:access_token],
-      pupil_key[:access_token_secret]
+    consumer,
+    pupil_key[:access_token],
+    pupil_key[:access_token_secret]
     )
   end
-  
+
   # @param [Hash] parameter
   # @return [String] URL Serialized parameters
   def param_serializer parameter
@@ -42,7 +42,7 @@ class Pupil
           ant[:"include_#{value}"] = :true
           break
         end
-        
+
         value.each do |element|
           raise UnsupportedParameter, 'include_entities is not supported.' if element.to_sym == :entities
           ant[:"include_#{element}"] = :true
@@ -52,7 +52,7 @@ class Pupil
           ant[:"exclude_#{value}"] = :true
           break
         end
-        
+
         value.each do |element|
           ant[:"exclude_#{element}"] = :true
         end
@@ -63,7 +63,7 @@ class Pupil
     param = ant.inject(""){|k,v|k+"&#{v[0]}=#{v[1]}"}.sub!(/^&/,"?")
     return param ? param : ""
   end
-  
+
   class REXML::Document
     def is_error?
       if self.root.get_text("error") then
@@ -77,9 +77,9 @@ class Pupil
       return self.root.get_text("error")
     end
   end
-  
+
   public
-  
+
   # @return [Hash] User credentials
   def verify_credentials
     response = @access_token.get('/account/verify_credentials.xml')
@@ -88,7 +88,7 @@ class Pupil
     user = User.new(doc.elements['/user'])
     return user
   end
-  
+
   # Alias to Pupil#home_timeline
   # @param [Hash] param
   # @return [Array] Timeline
@@ -112,7 +112,7 @@ class Pupil
 
     return statuses
   end
-  
+
   # @param [Hash] param
   # @return [Array] Timeline
   def home_timeline(param = {})
@@ -131,7 +131,7 @@ class Pupil
     }
     return statuses
   end
-  
+
   # Returning user timeline
   # @param [Hash] param
   # @return [Hash] timeline
@@ -166,7 +166,7 @@ class Pupil
     }
     return statuses
   end
-  
+
   # @param [Hash] param
   # @return [Hash] mention
   def mentions(param = {})
@@ -187,7 +187,7 @@ class Pupil
 
     return statuses
   end
-  
+
   # Returning direct messages
   # @param [Hash] param
   # @return [Hash] directmessages
@@ -209,7 +209,7 @@ class Pupil
 
     return directmessages
   end
-  
+
   # Returning direct messages you sent
   # @param [Hash] param
   # @return [Hash] directmessage you sent
@@ -231,7 +231,7 @@ class Pupil
 
     return directmessages
   end
-  
+
   # Delete direct message
   # @param [Fixnum] dm_id message id that you want to delete
   # @return [Hash] response
@@ -243,7 +243,7 @@ class Pupil
     end
     return response
   end
-  
+
   # Check friendships
   # @param [String] src source user
   # @param [String] dst destination user
@@ -262,7 +262,7 @@ class Pupil
       return false
     end
   end
-  
+
   # Follow user for screen_name
   # @param [String] name screen_name
   # @return [Hash] response
@@ -274,7 +274,7 @@ class Pupil
     end
     return response
   end
-  
+
   # Unfollow user for screen_name
   # @param [String] name screen_name
   # @return [Hash] response
@@ -286,7 +286,7 @@ class Pupil
     end
     return response
   end
-  
+
   # @param [Fixnum] id id
   # @return [Hash] response
   def block(id)
@@ -297,7 +297,7 @@ class Pupil
     end
     return response
   end
-  
+
   # @param [Fixnum] id id
   # @return [Hash] response
   def unblock(id)
@@ -308,7 +308,7 @@ class Pupil
     end
     return response
   end
-  
+
   # @return [Hash] list of blocking users
   def blocking
     response = @access_token.get("http://api.twitter.com/1/blocks/blocking.xml")
@@ -321,7 +321,7 @@ class Pupil
     }
     return users
   end
-  
+
   # @param [Fixnum] id list id
   # @param [String] ids id comma separated
   # @return [Hash] response
@@ -329,7 +329,7 @@ class Pupil
     response = @access_token.post("http://api.twitter.com/1/#{@username}/#{listid}/create_all.xml?user_id=#{ids}")
     return response
   end
-  
+
   # @return [Hash] lists
   def lists
     response = @access_token.get("http://api.twitter.com/1/#{@username}/lists.xml")
@@ -342,8 +342,8 @@ class Pupil
     }
     return lists
   end
-  
-  
+
+
   def lists_member_create(listid,id)
     begin
       response = @access_token.post("http://api.twitter.com/1/#{@username}/#{listid}/members.xml?id=#{id}")
@@ -453,7 +453,7 @@ class Pupil
     end
     return response
   end
-  
+
   class List
     attr_reader :id
     attr_reader :name
@@ -491,7 +491,7 @@ class Pupil
     attr_reader :recipient_screen_name
     attr_reader :sender
     attr_reader :recipient
-    
+
     def initialize(element)
       @id = element.elements['id'].text()
       @sender_id = element.elements['sender_id'].text()
@@ -610,21 +610,21 @@ class Pupil
     attr_reader :user_mentions
     attr_reader :urls
     attr_reader :hashtags
-    
+
     def initialize(element)
       @user_mentions = UserMention.new(element.elements['user_mention'])
       @urls = URL.new(element.elements['urls'])
       @hashtags = Hashtag.new(element.elements['hashtags'])
     end
   end
-  
+
   class UserMention
     attr_reader :id
     attr_reader :screen_name
     attr_reader :name
     attr_reader :start
     attr_reader :end
-    
+
     def initialize(element)
       @id = element.elements['id'].text()
       @screen_name = element.elements['screen_name'].text()
@@ -633,13 +633,13 @@ class Pupil
       @end = element.attributes['end']
     end
   end
-  
+
   class URL
     attr_reader :url
     attr_reader :expanded_url
     attr_reader :start
     attr_reader :end
-    
+
     def initialize(element)
       @url = element.elements['url'].text()
       @expanded_url = element.elements['expanded_url'].text()
@@ -647,12 +647,12 @@ class Pupil
       @end = element.attributes['end']
     end
   end
-  
+
   class Hashtag
     attr_reader :text
     attr_reader :start
     attr_reader :end
-    
+
     def initialize(element)
       @text = element.elements['text'].text()
       @start = element.attributes['start']

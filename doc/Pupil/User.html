@@ -6,7 +6,7 @@
 <title>
   Class: Pupil::User
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.7.4
   
 </title>
 
@@ -1265,46 +1265,46 @@ A new instance of User
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 43</span>
 
-<span class='kw'>def</span> <span class='id initialize'>initialize</span> <span class='id j'>j</span>
-  <span class='ivar'>@contributors_enabled</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>contributors_enabled</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
-  <span class='ivar'>@created_at</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@default_profile</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default_profile</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@default_profile_image</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default_profile_image</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@description</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>description</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@favourites_count</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>favourites_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@follow_request_sent</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>follow_request_sent</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@followers_count</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>followers_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@following</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>following</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@friends_count</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>friends_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@geo_enabled</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>geo_enabled</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@id</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@id_str</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id_str</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@is_translator</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is_translator</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@lang</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lang</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@listed_count</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>listed_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@location</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>location</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@notifications</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>notifications</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_background_color</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_background_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_background_image_url</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_background_image_url</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_background_image_url_https</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_background_image_url_https</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_background_tile</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_background_tile</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_image_url</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_image_url</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_image_url_https</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_image_url_https</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_link_color</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_link_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_sidebar_border_color</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_sidebar_border_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_sidebar_fill_color</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_sidebar_fill_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_text_color</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_text_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@profile_use_background_image</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_use_background_image</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@protected</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>protected</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@screen_name</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>screen_name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@show_all_inline_media</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>show_all_inline_media</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@status</span> <span class='op'>=</span> <span class='const'>Status</span><span class='period'>.</span><span class='id new'>new</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>status</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@statuses_count</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>statuses_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@time_zone</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>time_zone</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@url</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>url</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@utc_offset</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>utc_offset</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@verified</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>verified</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_j'>j</span>
+  <span class='ivar'>@contributors_enabled</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>contributors_enabled</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+  <span class='ivar'>@created_at</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@default_profile</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default_profile</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@default_profile_image</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default_profile_image</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@description</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>description</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@favourites_count</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>favourites_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@follow_request_sent</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>follow_request_sent</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@followers_count</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>followers_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@following</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>following</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@friends_count</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>friends_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@geo_enabled</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>geo_enabled</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@id</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@id_str</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id_str</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@is_translator</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is_translator</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@lang</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lang</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@listed_count</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>listed_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@location</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>location</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@notifications</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>notifications</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_background_color</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_background_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_background_image_url</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_background_image_url</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_background_image_url_https</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_background_image_url_https</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_background_tile</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_background_tile</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_image_url</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_image_url</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_image_url_https</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_image_url_https</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_link_color</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_link_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_sidebar_border_color</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_sidebar_border_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_sidebar_fill_color</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_sidebar_fill_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_text_color</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_text_color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@profile_use_background_image</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profile_use_background_image</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@protected</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>protected</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@screen_name</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>screen_name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@show_all_inline_media</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>show_all_inline_media</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@status</span> <span class='op'>=</span> <span class='const'>Status</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>status</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@statuses_count</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>statuses_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@time_zone</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>time_zone</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@url</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>url</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@utc_offset</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>utc_offset</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@verified</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>verified</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1351,7 +1351,7 @@ Returns the value of attribute contributors_enabled
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 3</span>
 
-<span class='kw'>def</span> <span class='id contributors_enabled'>contributors_enabled</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_contributors_enabled'>contributors_enabled</span>
   <span class='ivar'>@contributors_enabled</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1394,7 +1394,7 @@ Returns the value of attribute created_at
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 4</span>
 
-<span class='kw'>def</span> <span class='id created_at'>created_at</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
   <span class='ivar'>@created_at</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1437,7 +1437,7 @@ Returns the value of attribute default_profile
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 5</span>
 
-<span class='kw'>def</span> <span class='id default_profile'>default_profile</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_default_profile'>default_profile</span>
   <span class='ivar'>@default_profile</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1480,7 +1480,7 @@ Returns the value of attribute default_profile_image
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 6</span>
 
-<span class='kw'>def</span> <span class='id default_profile_image'>default_profile_image</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_default_profile_image'>default_profile_image</span>
   <span class='ivar'>@default_profile_image</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1523,7 +1523,7 @@ Returns the value of attribute description
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 7</span>
 
-<span class='kw'>def</span> <span class='id description'>description</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='ivar'>@description</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1566,7 +1566,7 @@ Returns the value of attribute favourites_count
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 8</span>
 
-<span class='kw'>def</span> <span class='id favourites_count'>favourites_count</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_favourites_count'>favourites_count</span>
   <span class='ivar'>@favourites_count</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1609,7 +1609,7 @@ Returns the value of attribute follow_request_sent
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 9</span>
 
-<span class='kw'>def</span> <span class='id follow_request_sent'>follow_request_sent</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_follow_request_sent'>follow_request_sent</span>
   <span class='ivar'>@follow_request_sent</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1652,7 +1652,7 @@ Returns the value of attribute followers_count
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 10</span>
 
-<span class='kw'>def</span> <span class='id followers_count'>followers_count</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_followers_count'>followers_count</span>
   <span class='ivar'>@followers_count</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1695,7 +1695,7 @@ Returns the value of attribute following
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 11</span>
 
-<span class='kw'>def</span> <span class='id following'>following</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_following'>following</span>
   <span class='ivar'>@following</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1738,7 +1738,7 @@ Returns the value of attribute friends_count
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 12</span>
 
-<span class='kw'>def</span> <span class='id friends_count'>friends_count</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_friends_count'>friends_count</span>
   <span class='ivar'>@friends_count</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1781,7 +1781,7 @@ Returns the value of attribute geo_enabled
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 13</span>
 
-<span class='kw'>def</span> <span class='id geo_enabled'>geo_enabled</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_geo_enabled'>geo_enabled</span>
   <span class='ivar'>@geo_enabled</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1824,7 +1824,7 @@ Returns the value of attribute id
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 14</span>
 
-<span class='kw'>def</span> <span class='id id'>id</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1867,7 +1867,7 @@ Returns the value of attribute id_str
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 15</span>
 
-<span class='kw'>def</span> <span class='id id_str'>id_str</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_id_str'>id_str</span>
   <span class='ivar'>@id_str</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1910,7 +1910,7 @@ Returns the value of attribute is_translator
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 16</span>
 
-<span class='kw'>def</span> <span class='id is_translator'>is_translator</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_is_translator'>is_translator</span>
   <span class='ivar'>@is_translator</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1953,7 +1953,7 @@ Returns the value of attribute lang
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 17</span>
 
-<span class='kw'>def</span> <span class='id lang'>lang</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_lang'>lang</span>
   <span class='ivar'>@lang</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1996,7 +1996,7 @@ Returns the value of attribute listed_count
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 18</span>
 
-<span class='kw'>def</span> <span class='id listed_count'>listed_count</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_listed_count'>listed_count</span>
   <span class='ivar'>@listed_count</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2039,7 +2039,7 @@ Returns the value of attribute location
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 19</span>
 
-<span class='kw'>def</span> <span class='id location'>location</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_location'>location</span>
   <span class='ivar'>@location</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2082,7 +2082,7 @@ Returns the value of attribute name
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 20</span>
 
-<span class='kw'>def</span> <span class='id name'>name</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2125,7 +2125,7 @@ Returns the value of attribute notifications
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 21</span>
 
-<span class='kw'>def</span> <span class='id notifications'>notifications</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_notifications'>notifications</span>
   <span class='ivar'>@notifications</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2168,7 +2168,7 @@ Returns the value of attribute profile_background_color
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 22</span>
 
-<span class='kw'>def</span> <span class='id profile_background_color'>profile_background_color</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_background_color'>profile_background_color</span>
   <span class='ivar'>@profile_background_color</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2211,7 +2211,7 @@ Returns the value of attribute profile_background_image_url
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 23</span>
 
-<span class='kw'>def</span> <span class='id profile_background_image_url'>profile_background_image_url</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_background_image_url'>profile_background_image_url</span>
   <span class='ivar'>@profile_background_image_url</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2254,7 +2254,7 @@ Returns the value of attribute profile_background_image_url_https
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 24</span>
 
-<span class='kw'>def</span> <span class='id profile_background_image_url_https'>profile_background_image_url_https</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_background_image_url_https'>profile_background_image_url_https</span>
   <span class='ivar'>@profile_background_image_url_https</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2297,7 +2297,7 @@ Returns the value of attribute profile_background_tile
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id profile_background_tile'>profile_background_tile</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_background_tile'>profile_background_tile</span>
   <span class='ivar'>@profile_background_tile</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2340,7 +2340,7 @@ Returns the value of attribute profile_image_url
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 26</span>
 
-<span class='kw'>def</span> <span class='id profile_image_url'>profile_image_url</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_image_url'>profile_image_url</span>
   <span class='ivar'>@profile_image_url</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2383,7 +2383,7 @@ Returns the value of attribute profile_image_url_https
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 27</span>
 
-<span class='kw'>def</span> <span class='id profile_image_url_https'>profile_image_url_https</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_image_url_https'>profile_image_url_https</span>
   <span class='ivar'>@profile_image_url_https</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2426,7 +2426,7 @@ Returns the value of attribute profile_link_color
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 28</span>
 
-<span class='kw'>def</span> <span class='id profile_link_color'>profile_link_color</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_link_color'>profile_link_color</span>
   <span class='ivar'>@profile_link_color</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2469,7 +2469,7 @@ Returns the value of attribute profile_sidebar_border_color
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id profile_sidebar_border_color'>profile_sidebar_border_color</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_sidebar_border_color'>profile_sidebar_border_color</span>
   <span class='ivar'>@profile_sidebar_border_color</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2512,7 +2512,7 @@ Returns the value of attribute profile_sidebar_fill_color
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 30</span>
 
-<span class='kw'>def</span> <span class='id profile_sidebar_fill_color'>profile_sidebar_fill_color</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_sidebar_fill_color'>profile_sidebar_fill_color</span>
   <span class='ivar'>@profile_sidebar_fill_color</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2555,7 +2555,7 @@ Returns the value of attribute profile_text_color
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 31</span>
 
-<span class='kw'>def</span> <span class='id profile_text_color'>profile_text_color</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_text_color'>profile_text_color</span>
   <span class='ivar'>@profile_text_color</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2598,7 +2598,7 @@ Returns the value of attribute profile_use_background_image
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 32</span>
 
-<span class='kw'>def</span> <span class='id profile_use_background_image'>profile_use_background_image</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_use_background_image'>profile_use_background_image</span>
   <span class='ivar'>@profile_use_background_image</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2641,7 +2641,7 @@ Returns the value of attribute protected
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 33</span>
 
-<span class='kw'>def</span> <span class='id protected'>protected</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_protected'>protected</span>
   <span class='ivar'>@protected</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2684,7 +2684,7 @@ Returns the value of attribute screen_name
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 34</span>
 
-<span class='kw'>def</span> <span class='id screen_name'>screen_name</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_screen_name'>screen_name</span>
   <span class='ivar'>@screen_name</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2727,7 +2727,7 @@ Returns the value of attribute show_all_inline_media
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 35</span>
 
-<span class='kw'>def</span> <span class='id show_all_inline_media'>show_all_inline_media</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_show_all_inline_media'>show_all_inline_media</span>
   <span class='ivar'>@show_all_inline_media</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2770,7 +2770,7 @@ Returns the value of attribute status
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='id status'>status</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_status'>status</span>
   <span class='ivar'>@status</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2813,7 +2813,7 @@ Returns the value of attribute statuses_count
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 37</span>
 
-<span class='kw'>def</span> <span class='id statuses_count'>statuses_count</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_statuses_count'>statuses_count</span>
   <span class='ivar'>@statuses_count</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2856,7 +2856,7 @@ Returns the value of attribute time_zone
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id time_zone'>time_zone</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_time_zone'>time_zone</span>
   <span class='ivar'>@time_zone</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2899,7 +2899,7 @@ Returns the value of attribute url
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 39</span>
 
-<span class='kw'>def</span> <span class='id url'>url</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_url'>url</span>
   <span class='ivar'>@url</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2942,7 +2942,7 @@ Returns the value of attribute utc_offset
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 40</span>
 
-<span class='kw'>def</span> <span class='id utc_offset'>utc_offset</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_utc_offset'>utc_offset</span>
   <span class='ivar'>@utc_offset</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2985,7 +2985,7 @@ Returns the value of attribute verified
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 41</span>
 
-<span class='kw'>def</span> <span class='id verified'>verified</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_verified'>verified</span>
   <span class='ivar'>@verified</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2999,9 +2999,9 @@ Returns the value of attribute verified
 </div>
     
     <div id="footer">
-  Generated on Fri Dec 16 17:19:17 2011 by 
+  Generated on Sat Dec 17 20:58:32 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.7.4 (ruby-1.9.2).
 </div>
 
   </body>

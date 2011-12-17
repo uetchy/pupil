@@ -1,3 +1,8 @@
+0.1.3
+----------------
+
+* Fixed a bug that Pupil::Stream::Status has not user variable
+
 0.1.2
 ----------------
 

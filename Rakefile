@@ -21,6 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{The "Lazy" Twitter API Library for Ruby 1.9.x. Easy to use.}
   gem.email = "oame@oameya.com"
   gem.authors = ["Oame"]
+  gem.required_ruby_version = '~>1.9.0'
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

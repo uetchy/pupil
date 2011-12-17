@@ -45,10 +45,10 @@ Examples
 	pupil.home_timeline :count => 50, :exclude => :replies
 	
 	# Follow User
-	pupil.follow :screen_name  => :twitterapi
+	pupil.follow :screen_name => :twitterapi
 	
 	# Update URL on profile
-	pupil.update_profile :url  => "http://oameya.com"
+	pupil.update_profile :url => "http://oameya.com"
 
 Using Streaming API
 
@@ -73,13 +73,13 @@ Using Streaming API
 	stream.start :userstream do |status|
 		puts status.event #=> Show type of status
 		if status.event == :retweeted
-			puts "#{status.user.screen_name} : #{status.text}"
+			puts "#{status.user.screen_name}: #{status.text}"
 		end
 	end
 	
 	# Search stream
-	stream.start :filter, :track => "#MerryChristmas" do |status|
-		puts "#{status['user']['screen_name']: #{status['text']}"
+	stream.start :search, :track => "#MerryChristmas" do |status|
+		puts "#{status.user.screen_name}: #{status.text}"
 	end
 
 Making `pupil_key`

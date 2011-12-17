@@ -54,7 +54,8 @@ class Pupil
                     break
                   end
                   
-                  block.call StreamEvent.new(status)
+                  event = self.guess_event status
+                  block.call event
                 end
               end
             end
@@ -65,29 +66,52 @@ class Pupil
       end
     end
     
-    class StreamEvent
-      attr_reader :type
-      attr_reader :content
+    def guess_event status
+      if status["delete"]
+        return Shash.new(:delete, status["delete"]["status"])
+      elsif status["friends"]
+        return Shash.new(:friends, status["friends"])
+      elsif status["event"] == "favorite"
+        return Shash.new(:favorite, status)
+      elsif status["retweeted_status"]
+        return Status.new(status, :retweeted)
+      elsif status["text"]
+        return Status.new(status)
+      else
+        return Shash.new(:unknown, status)
+      end
+    end
+    
+    # Stream Status
+    class Status < Pupil::Status
+      attr_reader :event
+      attr_reader :retweeted_status
       
-      def initialize status
-        @type, @content = self.guess_event status
+      def initialize status, event=nil
+        super(status)
+        @event = (event)? event : :status
+        @retweeted_status = status["retweeted_status"]
+      end
+    end
+    
+    # Stream Hash
+    class Shash
+      attr_reader :event
+      
+      def initialize event, status
+        @hash = status
+        @event = event
       end
       
-      def guess_event status
-        if status["delete"]
-          return :delete, status["delete"]["status"]
-        elsif status["friends"]
-          return :friends, status["friends"]
-        elsif status["event"] == "favorite"
-          return :favorite, status
-        elsif status["retweeted_status"]
-          return :retweet, status
-        elsif status["text"]
-          return :status, status#Pupil::Status.new(status)
-        else
-          return :unknown, status
-        end
+      def [] param
+        @hash[param]
       end
+      
+      def size
+        @hash.size
+      end
+      
+      method_alias :length, :size
     end
   end
 end

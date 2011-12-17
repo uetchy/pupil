@@ -112,7 +112,7 @@ class Pupil
         @hash.size
       end
       
-      method_alias :length, :size
+      alias_method :length, :size
     end
   end
 end

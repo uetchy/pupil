@@ -4,7 +4,7 @@ pupil
 Pupil is "Lazy" Twitter API Library for Ruby 1.9.x.
 Easy to use.
 
-Features/Problems
+Features / Problems
 -------------
 
 * Almost Twitter REST API are wrapped. However, some API does not support yet.
@@ -41,7 +41,7 @@ Examples
 	
 	pupil = Pupil.new pupil_key
 	
-	# Get timeline status without replies
+	# Get timeline statuses without replies
 	pupil.home_timeline :count => 50, :exclude => :replies
 	
 	# Follow User
@@ -100,7 +100,12 @@ Contributing to pupil
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-Copyright
+Credits
+-------------
+
+Developer: [Oame](http://twitter.com/o_ame)
+
+License
 -------------
 
 Copyright (c) 2011 Oame. See LICENSE.txt for

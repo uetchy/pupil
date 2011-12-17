@@ -4,7 +4,7 @@ class Pupil
     class StreamError < StandardError ; end
     STREAM_APIS = {
       :userstream => "https://userstream.twitter.com/2/user.json",
-      :filter => "https://stream.twitter.com/1/statuses/filter.json%s"
+      :search => "https://stream.twitter.com/1/statuses/filter.json%s"
     }
 
     def initialize key

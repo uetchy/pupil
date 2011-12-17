@@ -74,7 +74,7 @@ class Pupil
       @protected = j["protected"]
       @screen_name = j["screen_name"]
       @show_all_inline_media = j["show_all_inline_media"]
-      @status = Status.new j["status"]
+      @status = Pupil::Status.new j["status"] rescue nil
       @statuses_count = j["statuses_count"]
       @time_zone = j["time_zone"]
       @url = j["url"]
@@ -138,7 +138,7 @@ class Pupil
       @source = {:url => $1, :name => $2}
       @text = j["text"]
       @truncated = j["truncated"]
-      @user = User.new j["user"]  rescue nil
+      @user = Pupil::User.new j["user"] rescue nil
     end
   end
   
@@ -166,7 +166,7 @@ class Pupil
       @uri = element.elements['uri'].text()
       @following = element.elements['following'].text()
       @mode = element.elements['mode'].text()
-      @user = User.new(element.elements['user'])
+      @user = Pupil::User.new(element.elements['user'])
     end
   end
   
@@ -177,8 +177,8 @@ class Pupil
 
     def initialize(element)
       @user_mentions = UserMention.new(element.elements['user_mention'])
-      @urls = URL.new(element.elements['urls'])
-      @hashtags = Hashtag.new(element.elements['hashtags'])
+      @urls = Pupil::URL.new(element.elements['urls'])
+      @hashtags = Pupil::Hashtag.new(element.elements['hashtags'])
     end
   end
   
@@ -213,8 +213,8 @@ class Pupil
       @created_at = element.elements['created_at'].text()
       @sender_screen_name = element.elements['sender_screen_name'].text()
       @recipient_screen_name= element.elements['recipient_screen_name'].text()
-      @sender = User.new(element.elements['sender'])
-      @recipient = User.new(element.elements['recipient'])
+      @sender = Pupil::User.new(element.elements['sender'])
+      @recipient = Pupil::User.new(element.elements['recipient'])
     end
   end
 end

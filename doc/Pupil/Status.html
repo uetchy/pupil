@@ -6,7 +6,7 @@
 <title>
   Class: Pupil::Status
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.7.4
   
 </title>
 
@@ -92,6 +92,10 @@
 </dl>
 <div class="clear"></div>
 
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="Stream/Status.html" title="Pupil::Stream::Status (class)">Pupil::Stream::Status</a></span></p>
+</div>
 
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
@@ -706,27 +710,27 @@ A new instance of Status
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 121</span>
 
-<span class='kw'>def</span> <span class='id initialize'>initialize</span> <span class='id j'>j</span>
-  <span class='ivar'>@contributors</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>contributors</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@coordinates</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coordinates</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@created_at</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@favorited</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>favorited</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@geo</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>geo</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@id</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@id_str</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id_str</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@in_reply_to_screen_name</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_screen_name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@in_reply_to_status_id</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_status_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@in_reply_to_status_id_str</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_status_id_str</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@in_reply_to_user_id</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@in_reply_to_user_id_str</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_user_id_str</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@place</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>place</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@retweet_count</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>retweet_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@retweeted</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>retweeted</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>source</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>href=\&quot;(.+?)\&quot;.+?&gt;(.+?)&lt;</span><span class='regexp_end'>/</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_j'>j</span>
+  <span class='ivar'>@contributors</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>contributors</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@coordinates</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coordinates</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@created_at</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@favorited</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>favorited</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@geo</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>geo</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@id</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@id_str</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id_str</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@in_reply_to_screen_name</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_screen_name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@in_reply_to_status_id</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_status_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@in_reply_to_status_id_str</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_status_id_str</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@in_reply_to_user_id</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@in_reply_to_user_id_str</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>in_reply_to_user_id_str</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@place</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>place</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@retweet_count</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>retweet_count</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@retweeted</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>retweeted</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>source</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>href=\&quot;(.+?)\&quot;.+?&gt;(.+?)&lt;</span><span class='regexp_end'>/</span></span>
   <span class='ivar'>@source</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='symbol'>:url</span> <span class='op'>=&gt;</span> <span class='backref'>$1</span><span class='comma'>,</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='backref'>$2</span><span class='rbrace'>}</span>
-  <span class='ivar'>@text</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@truncated</span> <span class='op'>=</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>truncated</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id new'>new</span> <span class='id j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>  <span class='kw'>rescue</span> <span class='kw'>nil</span>
+  <span class='ivar'>@text</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@truncated</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>truncated</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_j'>j</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>  <span class='kw'>rescue</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -773,7 +777,7 @@ Returns the value of attribute contributors
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 101</span>
 
-<span class='kw'>def</span> <span class='id contributors'>contributors</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_contributors'>contributors</span>
   <span class='ivar'>@contributors</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -816,7 +820,7 @@ Returns the value of attribute coordinates
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 102</span>
 
-<span class='kw'>def</span> <span class='id coordinates'>coordinates</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_coordinates'>coordinates</span>
   <span class='ivar'>@coordinates</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -859,7 +863,7 @@ Returns the value of attribute created_at
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 103</span>
 
-<span class='kw'>def</span> <span class='id created_at'>created_at</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
   <span class='ivar'>@created_at</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -902,7 +906,7 @@ Returns the value of attribute favorited
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 104</span>
 
-<span class='kw'>def</span> <span class='id favorited'>favorited</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_favorited'>favorited</span>
   <span class='ivar'>@favorited</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -945,7 +949,7 @@ Returns the value of attribute geo
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 105</span>
 
-<span class='kw'>def</span> <span class='id geo'>geo</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_geo'>geo</span>
   <span class='ivar'>@geo</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -988,7 +992,7 @@ Returns the value of attribute id
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 106</span>
 
-<span class='kw'>def</span> <span class='id id'>id</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1031,7 +1035,7 @@ Returns the value of attribute id_str
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 107</span>
 
-<span class='kw'>def</span> <span class='id id_str'>id_str</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_id_str'>id_str</span>
   <span class='ivar'>@id_str</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1074,7 +1078,7 @@ Returns the value of attribute in_reply_to_screen_name
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 108</span>
 
-<span class='kw'>def</span> <span class='id in_reply_to_screen_name'>in_reply_to_screen_name</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_in_reply_to_screen_name'>in_reply_to_screen_name</span>
   <span class='ivar'>@in_reply_to_screen_name</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1117,7 +1121,7 @@ Returns the value of attribute in_reply_to_status_id
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 109</span>
 
-<span class='kw'>def</span> <span class='id in_reply_to_status_id'>in_reply_to_status_id</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_in_reply_to_status_id'>in_reply_to_status_id</span>
   <span class='ivar'>@in_reply_to_status_id</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1160,7 +1164,7 @@ Returns the value of attribute in_reply_to_status_id_str
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 110</span>
 
-<span class='kw'>def</span> <span class='id in_reply_to_status_id_str'>in_reply_to_status_id_str</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_in_reply_to_status_id_str'>in_reply_to_status_id_str</span>
   <span class='ivar'>@in_reply_to_status_id_str</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1203,7 +1207,7 @@ Returns the value of attribute in_reply_to_user_id
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 111</span>
 
-<span class='kw'>def</span> <span class='id in_reply_to_user_id'>in_reply_to_user_id</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_in_reply_to_user_id'>in_reply_to_user_id</span>
   <span class='ivar'>@in_reply_to_user_id</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1246,7 +1250,7 @@ Returns the value of attribute in_reply_to_user_id_str
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 112</span>
 
-<span class='kw'>def</span> <span class='id in_reply_to_user_id_str'>in_reply_to_user_id_str</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_in_reply_to_user_id_str'>in_reply_to_user_id_str</span>
   <span class='ivar'>@in_reply_to_user_id_str</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1289,7 +1293,7 @@ Returns the value of attribute place
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 113</span>
 
-<span class='kw'>def</span> <span class='id place'>place</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_place'>place</span>
   <span class='ivar'>@place</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1332,7 +1336,7 @@ Returns the value of attribute retweet_count
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 114</span>
 
-<span class='kw'>def</span> <span class='id retweet_count'>retweet_count</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_retweet_count'>retweet_count</span>
   <span class='ivar'>@retweet_count</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1375,7 +1379,7 @@ Returns the value of attribute retweeted
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 115</span>
 
-<span class='kw'>def</span> <span class='id retweeted'>retweeted</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_retweeted'>retweeted</span>
   <span class='ivar'>@retweeted</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1418,7 +1422,7 @@ Returns the value of attribute source
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 116</span>
 
-<span class='kw'>def</span> <span class='id source'>source</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_source'>source</span>
   <span class='ivar'>@source</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1461,7 +1465,7 @@ Returns the value of attribute text
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 117</span>
 
-<span class='kw'>def</span> <span class='id text'>text</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_text'>text</span>
   <span class='ivar'>@text</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1504,7 +1508,7 @@ Returns the value of attribute truncated
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 118</span>
 
-<span class='kw'>def</span> <span class='id truncated'>truncated</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_truncated'>truncated</span>
   <span class='ivar'>@truncated</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1547,7 +1551,7 @@ Returns the value of attribute user
     <td>
       <pre class="code"><span class="info file"># File 'lib/pupil/schemes.rb', line 119</span>
 
-<span class='kw'>def</span> <span class='id user'>user</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_user'>user</span>
   <span class='ivar'>@user</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1561,9 +1565,9 @@ Returns the value of attribute user
 </div>
     
     <div id="footer">
-  Generated on Fri Dec 16 17:19:17 2011 by 
+  Generated on Sat Dec 17 20:58:32 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.7.4 (ruby-1.9.2).
 </div>
 
   </body>

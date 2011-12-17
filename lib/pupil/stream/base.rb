@@ -21,7 +21,8 @@ class Pupil
       key[:access_token_secret]
       )
     end
-
+    
+    # @return [Pupil::Stream::Shash, Pupil::Stream::Status] event variable supported :status, :retweeted, :favorite, :friends and :delete
     def start(type, param=nil, &block)
       raise ArgumentError unless block_given?
       

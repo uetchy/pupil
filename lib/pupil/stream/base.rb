@@ -1,5 +1,6 @@
 class Pupil
   class Stream
+    attr_reader :screen_name
     class StreamError < StandardError ; end
     STREAM_APIS = {
       :userstream => "https://userstream.twitter.com/2/user.json",
@@ -8,8 +9,6 @@ class Pupil
 
     def initialize key
       @screen_name = key[:screen_name]
-      @client = nil
-      @config = nil
 
       @consumer = OAuth::Consumer.new(
       key[:consumer_key],

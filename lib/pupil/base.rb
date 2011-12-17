@@ -14,8 +14,6 @@ class Pupil
   # @param [Hash] pupil_key
   def initialize key
     @screen_name = key[:screen_name]
-    @client = nil
-    @config = nil
     
     @consumer = OAuth::Consumer.new(
       key[:consumer_key],

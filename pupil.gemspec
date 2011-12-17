@@ -5,24 +5,23 @@
 
 Gem::Specification.new do |s|
   s.name = "pupil"
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oame"]
-  s.date = "2011-12-16"
+  s.date = "2011-12-17"
   s.description = "The \"Lazy\" Twitter API Library for Ruby 1.9.x. Easy to use."
   s.email = "oame@oameya.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
-    ".document",
-    ".rspec",
+    "CHANGELOG.md",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
     "doc/Pupil.html",
@@ -35,8 +34,9 @@ Gem::Specification.new do |s|
     "doc/Pupil/NetworkError.html",
     "doc/Pupil/Status.html",
     "doc/Pupil/Stream.html",
+    "doc/Pupil/Stream/Shash.html",
+    "doc/Pupil/Stream/Status.html",
     "doc/Pupil/Stream/StreamError.html",
-    "doc/Pupil/Stream/StreamEvent.html",
     "doc/Pupil/URL.html",
     "doc/Pupil/UnsupportedParameter.html",
     "doc/Pupil/User.html",
@@ -69,6 +69,7 @@ Gem::Specification.new do |s|
     "lib/pupil/stream.rb",
     "lib/pupil/stream/base.rb",
     "lib/pupil/users.rb",
+    "pupil.gemspec",
     "samples/generate-key.rb",
     "spec/pupil_spec.rb",
     "spec/spec_helper.rb"
@@ -76,7 +77,8 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/oame/pupil"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.12"
+  s.required_ruby_version = Gem::Requirement.new("~> 1.9.0")
+  s.rubygems_version = "1.8.10"
   s.summary = "The \"Lazy\" Twitter API Library for Ruby 1.9.x"
 
   if s.respond_to? :specification_version then

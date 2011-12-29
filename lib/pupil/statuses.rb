@@ -9,7 +9,7 @@ class Pupil
   # @option param [Symbol] :include #=> [:rts]
   # @option param [Symbol] :exclude #=> [:replies]
   # @option param [Symbol] :contributor_details
-  def home_timeline param={}
+  def home_timeline(param={})
     response = self.get("/statuses/home_timeline.json", param)
     statuses = Array.new
     response.each do |element|
@@ -19,9 +19,9 @@ class Pupil
     return statuses
   end
   
-  # @return [Hash] mention
+  # @return [Array] Mention
   # @param [Hash] param
-  def mentions param={}
+  def mentions(param={})
     response = self.get("/statuses/mentions.json", param)
     statuses = Array.new
     response.each do |element|
@@ -32,7 +32,7 @@ class Pupil
   end
   
   # Returning user timeline
-  # @return [Hash] timeline
+  # @return [Array] timeline
   # @param [Hash] param
   # @option param [Fixnum] :user_id The ID of user
   # @option param [String] :screen_name The Screen name of user
@@ -49,7 +49,7 @@ class Pupil
   #   twitter.user_timeline(:screen_name => 'o_ame', :exclude => :replies).each do |status|
   #     puts "#{status.user.screen_name}: #{status.text}"
   #   end
-  def user_timeline param={}
+  def user_timeline(param={})
     response = self.get("/statuses/user_timeline.json", param)
     statuses = Array.new
     response.each do |element|
@@ -58,8 +58,20 @@ class Pupil
     end
     return statuses
   end
+  # Returning public timeline
+  # @return [Array] Timeline
+  # @param [Hash] param
+  def public_timeline(param={})
+    response = self.get("/statuses/public_timeline.json", param)
+    statuses = Array.new
+    response.each do |element|
+      status = Status.new element
+      statuses << status
+    end
+    return statuses
+  end
   
-  def show_status status_id
+  def show_status(status_id)
     response = @access_token.get("/statuses/show/#{status_id}.json").body
     return response
     status = Status.new response

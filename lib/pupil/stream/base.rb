@@ -21,14 +21,14 @@ class Pupil
       key[:access_token_secret]
       )
     end
-    
+
     # @return [Pupil::Stream::Shash, Pupil::Stream::Status] event variable supported :status, :retweeted, :favorite, :friends and :delete
     def start(type, param=nil, &block)
       raise ArgumentError unless block_given?
-      
+
       run_get_stream type, param, &block
     end
-    
+
     def run_get_stream(type, param=nil, &block)
       uri = URI.parse(STREAM_APIS[type] % Pupil.param_serializer(param))
       https = Net::HTTP.new(uri.host, uri.port)
@@ -54,7 +54,7 @@ class Pupil
                   rescue
                     break
                   end
-                  
+
                   event = self.guess_event status
                   block.call event
                 end
@@ -66,53 +66,55 @@ class Pupil
         end
       end
     end
-    
+
     def guess_event status
       if status["delete"]
-        return Shash.new(:delete, status["delete"]["status"])
+        return Pupil::Stream::Hash.new(status["delete"]["status"], :delete)
       elsif status["friends"]
-        return Shash.new(:friends, status["friends"])
+        return Pupil::Stream::Array.new(status["friends"], :friends)
       elsif status["event"] == "favorite"
-        return Shash.new(:favorite, status)
+        return Pupil::Stream::Hash.new(status, :favorite)
       elsif status["retweeted_status"]
-        return Status.new(status, :retweeted)
+        return Pupil::Stream::Status.new(status, :retweeted)
       elsif status["text"]
-        return Status.new(status)
+        return Pupil::Stream::Status.new(status)
       else
-        return Shash.new(:unknown, status)
+        return Pupil::Stream::Hash.new(status, :unknown)
       end
     end
-    
+
     # Stream Status
     class Status < Pupil::Status
       attr_reader :event
       attr_reader :retweeted_status
-      
-      def initialize status, event=nil
+
+      def initialize(status, event=nil)
         super(status)
         @event = (event)? event : :status
         @retweeted_status = status["retweeted_status"]
       end
     end
-    
+
     # Stream Hash
-    class Shash
+    class Hash < Hash
       attr_reader :event
-      
-      def initialize event, status
-        @hash = status
+
+      def initialize(status, event)
+        super()
+        self.update(status)
         @event = event
       end
-      
-      def [] param
-        @hash[param]
+    end
+
+    # Stream Array
+    class Array < Array
+      attr_reader :event
+
+      def initialize(status, event)
+        super(status)
+        #self.update(status)
+        @event = event
       end
-      
-      def size
-        @hash.size
-      end
-      
-      alias_method :length, :size
     end
   end
 end

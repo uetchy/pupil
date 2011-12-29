@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "pupil"
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oame"]
-  s.date = "2011-12-17"
+  s.date = "2011-12-29"
   s.description = "The \"Lazy\" Twitter API Library for Ruby 1.9.x. Easy to use."
   s.email = "oame@oameya.com"
   s.extra_rdoc_files = [
@@ -65,6 +65,7 @@ Gem::Specification.new do |s|
     "lib/pupil/keygen/base.rb",
     "lib/pupil/lists.rb",
     "lib/pupil/schemes.rb",
+    "lib/pupil/search.rb",
     "lib/pupil/statuses.rb",
     "lib/pupil/stream.rb",
     "lib/pupil/stream/base.rb",

@@ -71,7 +71,7 @@ Using Streaming API
 	
 	# Userstream
 	stream.start :userstream do |status|
-		puts status.event #=> Show type of status
+		puts status.event #=> Show type of event
 		if status.event == :retweeted
 			puts "#{status.user.screen_name}: #{status.text}"
 		end

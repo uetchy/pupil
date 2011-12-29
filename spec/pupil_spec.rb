@@ -6,6 +6,17 @@
 
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
+describe Pupil, "が #verify_credentials を呼ぶ時は" do
+  before do
+    pupil = Pupil.new PUPIL_TESTKEY
+    @vc = pupil.verify_credentials
+  end
+  
+  it "Pupil::User型を返すこと" do
+    @vc.class.should == Pupil::User
+  end
+end
+
 describe Pupil, "が #home_timeline を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
@@ -33,17 +44,6 @@ describe Pupil, "が #mentions を呼ぶ時は" do
   
   it "sizeが50であること" do
     @mentions.size.should == 10
-  end
-end
-
-describe Pupil, "が #verify_credentials を呼ぶ時は" do
-  before do
-    pupil = Pupil.new PUPIL_TESTKEY
-    @vc = pupil.verify_credentials
-  end
-  
-  it "Pupil::User型を返すこと" do
-    @vc.class.should == Pupil::User
   end
 end
 
@@ -146,5 +146,20 @@ describe Pupil, "が #blocking を呼ぶ時は" do
   
   it "Array型を返すこと" do
     @blocking.class.should == Array
+  end
+end
+
+describe Pupil, "が、 #search を呼ぶ時は" do
+  before do
+    pupil = Pupil.new PUPIL_TESTKEY
+    @search = pupil.search("Twitter", :rpp => 10)
+  end
+  
+  it "Array型を返すこと" do
+    @search.class.should == Array
+  end
+  
+  it "sizeが10であること" do
+    @search.size.should == 10
   end
 end

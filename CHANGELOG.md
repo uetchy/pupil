@@ -1,3 +1,12 @@
+0.1.4
+----------------
+
+* Rename Search stream method, :filter to :search
+* Search REST API are supported
+* Pupil::Stream::Shash is outdated. Instead, use Pupil::Stream::Hash
+* New class, Pupil::Stream::Array
+* Pupil#public_timeline are supported
+
 0.1.3
 ----------------
 

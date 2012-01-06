@@ -5,30 +5,72 @@
 
 Gem::Specification.new do |s|
   s.name = "pupil"
-  s.version = "0.0.6"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oame"]
-  s.date = "2011-10-22"
-  s.description = "The \"Lazy\" Twitter API Wrapper for Ruby 1.9.2"
+  s.date = "2011-12-29"
+  s.description = "The \"Lazy\" Twitter API Library for Ruby 1.9.x. Easy to use."
   s.email = "oame@oameya.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
-    ".document",
-    ".rspec",
+    "CHANGELOG.md",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
+    "doc/Pupil.html",
+    "doc/Pupil/DirectMessage.html",
+    "doc/Pupil/Entities.html",
+    "doc/Pupil/Hashtag.html",
+    "doc/Pupil/Keygen.html",
+    "doc/Pupil/Keygen/MissingRequiredTokens.html",
+    "doc/Pupil/List.html",
+    "doc/Pupil/NetworkError.html",
+    "doc/Pupil/Status.html",
+    "doc/Pupil/Stream.html",
+    "doc/Pupil/Stream/Shash.html",
+    "doc/Pupil/Stream/Status.html",
+    "doc/Pupil/Stream/StreamError.html",
+    "doc/Pupil/URL.html",
+    "doc/Pupil/UnsupportedParameter.html",
+    "doc/Pupil/User.html",
+    "doc/_index.html",
+    "doc/class_list.html",
+    "doc/css/common.css",
+    "doc/css/full_list.css",
+    "doc/css/style.css",
+    "doc/file.LICENSE.html",
+    "doc/file.README.html",
+    "doc/file_list.html",
+    "doc/frames.html",
+    "doc/index.html",
+    "doc/js/app.js",
+    "doc/js/full_list.js",
+    "doc/js/jquery.js",
+    "doc/method_list.html",
+    "doc/top-level-namespace.html",
     "lib/pupil.rb",
+    "lib/pupil/account.rb",
+    "lib/pupil/base.rb",
+    "lib/pupil/blocks.rb",
+    "lib/pupil/direct_messages.rb",
+    "lib/pupil/friendships.rb",
     "lib/pupil/keygen.rb",
+    "lib/pupil/keygen/base.rb",
+    "lib/pupil/lists.rb",
+    "lib/pupil/schemes.rb",
+    "lib/pupil/search.rb",
+    "lib/pupil/statuses.rb",
+    "lib/pupil/stream.rb",
+    "lib/pupil/stream/base.rb",
+    "lib/pupil/users.rb",
     "pupil.gemspec",
-    "samples/ff-dumper.rb",
     "samples/generate-key.rb",
     "spec/pupil_spec.rb",
     "spec/spec_helper.rb"
@@ -36,14 +78,16 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/oame/pupil"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
+  s.required_ruby_version = Gem::Requirement.new("~> 1.9.0")
   s.rubygems_version = "1.8.10"
-  s.summary = "The \"Lazy\" Twitter API Wrapper for Ruby"
+  s.summary = "The \"Lazy\" Twitter API Library for Ruby 1.9.x"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<oauth>, [">= 0"])
+      s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
@@ -51,6 +95,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
       s.add_dependency(%q<oauth>, [">= 0"])
+      s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_dependency(%q<yard>, ["~> 0.6.0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
@@ -59,6 +104,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<oauth>, [">= 0"])
+    s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.3.0"])
     s.add_dependency(%q<yard>, ["~> 0.6.0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])

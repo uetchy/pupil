@@ -1,0 +1,838 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Pupil::Keygen
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (K)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Pupil.html" title="Pupil (class)">Pupil</a></span></span>
+     &raquo; 
+    <span class="title">Keygen</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Pupil::Keygen
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Pupil::Keygen</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/pupil/keygen/base.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Keygen/MissingRequiredTokens.html" title="Pupil::Keygen::MissingRequiredTokens (class)">MissingRequiredTokens</a></span>
+    
+  
+</p>
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#access_token-instance_method" title="#access_token (instance method)">- (Object) <strong>access_token</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute access_token.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#access_token_secret-instance_method" title="#access_token_secret (instance method)">- (Object) <strong>access_token_secret</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute access_token_secret.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#consumer_key-instance_method" title="#consumer_key (instance method)">- (Object) <strong>consumer_key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute consumer_key.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#consumer_secret-instance_method" title="#consumer_secret (instance method)">- (Object) <strong>consumer_secret</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute consumer_secret.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#auth_url-instance_method" title="#auth_url (instance method)">- (Object) <strong>auth_url</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Keygen) <strong>initialize</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A new instance of Keygen.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#interactive-instance_method" title="#interactive (instance method)">- (Object) <strong>interactive</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#issue_token-instance_method" title="#issue_token (instance method)">- (Object) <strong>issue_token</strong>(verifier) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pupilkey-instance_method" title="#pupilkey (instance method)">- (Object) <strong>pupilkey</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Pupil::Keygen (class)">Keygen</a></span></tt>) <strong>initialize</strong>(opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of Keygen
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pupil/keygen/base.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@consumer_key</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:consumer_key</span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+  <span class='ivar'>@consumer_secret</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:consumer_secret</span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+  <span class='ivar'>@access_token</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:access_token</span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+  <span class='ivar'>@access_token_secret</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:access_token_secret</span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="access_token-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="access_token-instance_method">
+  
+    - (<tt>Object</tt>) <strong>access_token</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute access_token
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pupil/keygen/base.rb', line 5</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_access_token'>access_token</span>
+  <span class='ivar'>@access_token</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="access_token_secret-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="access_token_secret-instance_method">
+  
+    - (<tt>Object</tt>) <strong>access_token_secret</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute access_token_secret
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pupil/keygen/base.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_access_token_secret'>access_token_secret</span>
+  <span class='ivar'>@access_token_secret</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="consumer_key-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="consumer_key-instance_method">
+  
+    - (<tt>Object</tt>) <strong>consumer_key</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute consumer_key
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3
+4
+5</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pupil/keygen/base.rb', line 3</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_consumer_key'>consumer_key</span>
+  <span class='ivar'>@consumer_key</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="consumer_secret-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="consumer_secret-instance_method">
+  
+    - (<tt>Object</tt>) <strong>consumer_secret</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute consumer_secret
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pupil/keygen/base.rb', line 4</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_consumer_secret'>consumer_secret</span>
+  <span class='ivar'>@consumer_secret</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="auth_url-instance_method">
+  
+    - (<tt>Object</tt>) <strong>auth_url</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Keygen/MissingRequiredTokens.html" title="Pupil::Keygen::MissingRequiredTokens (class)">MissingRequiredTokens</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pupil/keygen/base.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_auth_url'>auth_url</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>MissingRequiredTokens</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Pupil::Keygen#auth_url require consumer_key and consumer_secret</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@consumer_key</span> <span class='op'>||</span> <span class='ivar'>@consumer_secret</span>
+  <span class='id identifier rubyid_consumer'>consumer</span> <span class='op'>=</span> <span class='const'>OAuth</span><span class='op'>::</span><span class='const'>Consumer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@consumer_key</span><span class='comma'>,</span> <span class='ivar'>@consumer_secret</span><span class='comma'>,</span> <span class='symbol'>:site</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://twitter.com</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request_token'>request_token</span> <span class='op'>=</span> <span class='id identifier rubyid_consumer'>consumer</span><span class='period'>.</span><span class='id identifier rubyid_get_request_token'>get_request_token</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_request_token'>request_token</span><span class='period'>.</span><span class='id identifier rubyid_authorize_url'>authorize_url</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="interactive-instance_method">
+  
+    - (<tt>Object</tt>) <strong>interactive</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pupil/keygen/base.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_interactive'>interactive</span>
+  <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Enter OAuth Consumer Key: </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@consumer_key</span>
+  <span class='ivar'>@consumer_key</span> <span class='op'>=</span> <span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='kw'>unless</span> <span class='ivar'>@consumer_key</span>
+  <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Enter OAuth Consumer Secret: </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@consumer_secret</span>
+  <span class='ivar'>@consumer_secret</span> <span class='op'>=</span> <span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='kw'>unless</span> <span class='ivar'>@consumer_secret</span>
+
+  <span class='id identifier rubyid_consumer'>consumer</span> <span class='op'>=</span> <span class='const'>OAuth</span><span class='op'>::</span><span class='const'>Consumer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@consumer_key</span><span class='comma'>,</span> <span class='ivar'>@consumer_secret</span><span class='comma'>,</span> <span class='symbol'>:site</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://twitter.com</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_request_token'>request_token</span> <span class='op'>=</span> <span class='id identifier rubyid_consumer'>consumer</span><span class='period'>.</span><span class='id identifier rubyid_get_request_token'>get_request_token</span>
+
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Access to this URL and approve: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_request_token'>request_token</span><span class='period'>.</span><span class='id identifier rubyid_authorize_url'>authorize_url</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Enter OAuth Verifier: </span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_oauth_verifier'>oauth_verifier</span> <span class='op'>=</span> <span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span>
+
+  <span class='id identifier rubyid_access_token'>access_token</span> <span class='op'>=</span> <span class='id identifier rubyid_request_token'>request_token</span><span class='period'>.</span><span class='id identifier rubyid_get_access_token'>get_access_token</span><span class='lparen'>(</span><span class='symbol'>:oauth_verifier</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_oauth_verifier'>oauth_verifier</span><span class='rparen'>)</span>
+  <span class='ivar'>@access_token</span> <span class='op'>=</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_token'>token</span>
+  <span class='ivar'>@access_token_secret</span> <span class='op'>=</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_secret'>secret</span>
+  
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Process complete!</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Access token: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_token'>token</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Access token secret: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_secret'>secret</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>return</span> <span class='lbrace'>{</span><span class='symbol'>:consumer_key</span> <span class='op'>=&gt;</span> <span class='ivar'>@consumer_key</span><span class='comma'>,</span> <span class='symbol'>:consumer_secret</span> <span class='op'>=&gt;</span> <span class='ivar'>@consumer_secret</span><span class='comma'>,</span> <span class='symbol'>:access_token</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='symbol'>:access_token_secret</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_secret'>secret</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="issue_token-instance_method">
+  
+    - (<tt>Object</tt>) <strong>issue_token</strong>(verifier) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Keygen/MissingRequiredTokens.html" title="Pupil::Keygen::MissingRequiredTokens (class)">MissingRequiredTokens</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pupil/keygen/base.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_issue_token'>issue_token</span> <span class='id identifier rubyid_verifier'>verifier</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>MissingRequiredTokens</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Pupil::Keygen#issue_token require consumer_key and consumer_secret</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@consumer_key</span> <span class='op'>||</span> <span class='ivar'>@consumer_secret</span>
+  <span class='id identifier rubyid_consumer'>consumer</span> <span class='op'>=</span> <span class='const'>OAuth</span><span class='op'>::</span><span class='const'>Consumer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@consumer_key</span><span class='comma'>,</span> <span class='ivar'>@consumer_secret</span><span class='comma'>,</span> <span class='symbol'>:site</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://twitter.com</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request_token'>request_token</span> <span class='op'>=</span> <span class='id identifier rubyid_consumer'>consumer</span><span class='period'>.</span><span class='id identifier rubyid_get_request_token'>get_request_token</span>
+  <span class='id identifier rubyid_access_token'>access_token</span> <span class='op'>=</span> <span class='id identifier rubyid_request_token'>request_token</span><span class='period'>.</span><span class='id identifier rubyid_get_access_token'>get_access_token</span><span class='lparen'>(</span><span class='symbol'>:oauth_verifier</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_verifier'>verifier</span><span class='rparen'>)</span>
+  <span class='ivar'>@access_token</span> <span class='op'>=</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_token'>token</span>
+  <span class='ivar'>@access_token_secret</span> <span class='op'>=</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_secret'>secret</span>
+  <span class='kw'>return</span> <span class='lbrace'>{</span><span class='symbol'>:access_token</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='symbol'>:access_token_secret</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='period'>.</span><span class='id identifier rubyid_secret'>secret</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pupilkey-instance_method">
+  
+    - (<tt>Object</tt>) <strong>pupilkey</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Keygen/MissingRequiredTokens.html" title="Pupil::Keygen::MissingRequiredTokens (class)">MissingRequiredTokens</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pupil/keygen/base.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pupilkey'>pupilkey</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>MissingRequiredTokens</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Pupil::Keygen#pupilkey require consumer_key, consumer_secret, access_token and access_token_secret</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@consumer_key</span> <span class='op'>||</span> <span class='ivar'>@consumer_secret</span> <span class='op'>||</span> <span class='ivar'>@access_token</span> <span class='op'>||</span> <span class='ivar'>@access_token_secret</span>
+  <span class='kw'>return</span> <span class='lbrace'>{</span>
+    <span class='symbol'>:consumer_key</span> <span class='op'>=&gt;</span> <span class='ivar'>@consumer_key</span><span class='comma'>,</span>
+    <span class='symbol'>:consumer_secret</span> <span class='op'>=&gt;</span> <span class='ivar'>@consumer_secret</span><span class='comma'>,</span>
+    <span class='symbol'>:access_token</span> <span class='op'>=&gt;</span> <span class='ivar'>@access_token</span><span class='comma'>,</span>
+    <span class='symbol'>:access_token_secret</span> <span class='op'>=&gt;</span> <span class='ivar'>@access_token_secret</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Dec 17 20:58:33 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.4 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 
 gem "oauth"
+gem "json"
 
 group :development do
   gem "rspec", "~> 2.3.0"

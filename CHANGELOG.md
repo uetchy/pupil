@@ -1,6 +1,7 @@
 0.1.5 / Unreleased
 ----------------
 
+* Pupil::Stream Error handling(Pupil::Stream::StreamError) are rejected.
 
 
 0.1.4

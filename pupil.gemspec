@@ -5,56 +5,29 @@
 
 Gem::Specification.new do |s|
   s.name = "pupil"
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oame"]
-  s.date = "2011-12-29"
+  s.date = "2012-01-07"
   s.description = "The \"Lazy\" Twitter API Library for Ruby 1.9.x. Easy to use."
   s.email = "oame@oameya.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.md"
+    "README.md",
+    "README.rdoc"
   ]
   s.files = [
+    ".document",
+    ".rspec",
     "CHANGELOG.md",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
     "README.md",
+    "README.rdoc",
     "Rakefile",
     "VERSION",
-    "doc/Pupil.html",
-    "doc/Pupil/DirectMessage.html",
-    "doc/Pupil/Entities.html",
-    "doc/Pupil/Hashtag.html",
-    "doc/Pupil/Keygen.html",
-    "doc/Pupil/Keygen/MissingRequiredTokens.html",
-    "doc/Pupil/List.html",
-    "doc/Pupil/NetworkError.html",
-    "doc/Pupil/Status.html",
-    "doc/Pupil/Stream.html",
-    "doc/Pupil/Stream/Shash.html",
-    "doc/Pupil/Stream/Status.html",
-    "doc/Pupil/Stream/StreamError.html",
-    "doc/Pupil/URL.html",
-    "doc/Pupil/UnsupportedParameter.html",
-    "doc/Pupil/User.html",
-    "doc/_index.html",
-    "doc/class_list.html",
-    "doc/css/common.css",
-    "doc/css/full_list.css",
-    "doc/css/style.css",
-    "doc/file.LICENSE.html",
-    "doc/file.README.html",
-    "doc/file_list.html",
-    "doc/frames.html",
-    "doc/index.html",
-    "doc/js/app.js",
-    "doc/js/full_list.js",
-    "doc/js/jquery.js",
-    "doc/method_list.html",
-    "doc/top-level-namespace.html",
     "lib/pupil.rb",
     "lib/pupil/account.rb",
     "lib/pupil/base.rb",
@@ -71,6 +44,7 @@ Gem::Specification.new do |s|
     "lib/pupil/stream/base.rb",
     "lib/pupil/users.rb",
     "pupil.gemspec",
+    "samples/ff-dumper.rb",
     "samples/generate-key.rb",
     "spec/pupil_spec.rb",
     "spec/spec_helper.rb"

@@ -1,4 +1,9 @@
-0.1.5 / Unreleased
+0.1.6 / Unreleased
+----------------
+
+
+
+0.1.5
 ----------------
 
 * Pupil::Stream Error handling(Pupil::Stream::StreamError) are rejected.

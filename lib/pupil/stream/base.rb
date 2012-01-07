@@ -1,7 +1,6 @@
 class Pupil
   class Stream
     attr_reader :screen_name
-    class StreamError < StandardError ; end
     STREAM_APIS = {
       :userstream => "https://userstream.twitter.com/2/user.json",
       :search => "https://stream.twitter.com/1/statuses/filter.json%s"
@@ -37,32 +36,28 @@ class Pupil
       https.verify_depth = 5
 
       while true do
-        begin
-          https.start do |https|
-            request = Net::HTTP::Get.new(uri.request_uri)
-            request["User-Agent"] = "Ruby/#{RUBY_VERSION} Pupil::Stream"
-            request.oauth!(https, @consumer, @access_token)
-            buf = ""
-            https.request(request) do |response|
-              response.read_body do |chunk|
-                buf << chunk
-                while (line = buf[/.+?(\r\n)+/m]) != nil
-                  begin
-                    buf.sub!(line,"")
-                    line.strip!
-                    status = JSON.parse(line)
-                  rescue
-                    break
-                  end
-
-                  event = self.guess_event status
-                  block.call event
+        https.start do |https|
+          request = Net::HTTP::Get.new(uri.request_uri)
+          request["User-Agent"] = "Ruby/#{RUBY_VERSION} Pupil::Stream"
+          request.oauth!(https, @consumer, @access_token)
+          buf = ""
+          https.request(request) do |response|
+            response.read_body do |chunk|
+              buf << chunk
+              while (line = buf[/.+?(\r\n)+/m]) != nil
+                begin
+                  buf.sub!(line,"")
+                  line.strip!
+                  status = JSON.parse(line)
+                rescue
+                  break
                 end
+
+                event = self.guess_event status
+                block.call event
               end
             end
           end
-        rescue => vars
-          raise StreamError, "StreamError: #{vars}"
         end
       end
     end

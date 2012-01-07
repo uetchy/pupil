@@ -1,12 +1,12 @@
 .yardoc
+.document
+doc
 .bundle
 pkg
+.rspec
 
 *.tmproj
 tmtags
 
 .DS_Store
 spec/pupil_testkey.rb
-.rspec
-.document
-doc

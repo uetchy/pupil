@@ -45,7 +45,7 @@ Examples
 	pupil.home_timeline :count => 50, :exclude => :replies
 	
 	# Follow User
-	pupil.follow :screen_name => :twitterapi
+	pupil.follow :twitterapi
 	
 	# Update URL on profile
 	pupil.update_profile :url => "http://oameya.com"

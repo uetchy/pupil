@@ -5,6 +5,8 @@ class Pupil
       :userstream => "https://userstream.twitter.com/2/user.json",
       :search => "https://stream.twitter.com/1/statuses/filter.json%s"
     }
+    
+    include Essentials
 
     def initialize key
       @screen_name = key[:screen_name]
@@ -29,7 +31,7 @@ class Pupil
     end
 
     def run_get_stream(type, param=nil, &block)
-      uri = URI.parse(STREAM_APIS[type] % Pupil.param_serializer(param))
+      uri = URI.parse(STREAM_APIS[type] % serialize_parameter(param))
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
       https.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -70,9 +72,9 @@ class Pupil
       elsif status["event"] == "favorite"
         return Pupil::Stream::Hash.new(status, :favorite)
       elsif status["retweeted_status"]
-        return Pupil::Stream::Status.new(status, :retweeted)
+        return Pupil::Stream::Status.new(status, @access_token, :retweeted)
       elsif status["text"]
-        return Pupil::Stream::Status.new(status)
+        return Pupil::Stream::Status.new(status, @access_token)
       else
         return Pupil::Stream::Hash.new(status, :unknown)
       end
@@ -83,10 +85,10 @@ class Pupil
       attr_reader :event
       attr_reader :retweeted_status
 
-      def initialize(status, event=nil)
-        super(status)
+      def initialize(status, access_token, event=nil)
+        super(status, access_token)
         @event = (event)? event : :status
-        @retweeted_status = status["retweeted_status"]
+        #@retweeted_status = status["retweeted_status"]
       end
     end
 

@@ -10,10 +10,11 @@ class Pupil
   # @option param [Symbol] :exclude #=> [:replies]
   # @option param [Symbol] :contributor_details
   def home_timeline(param={})
-    response = self.get("/statuses/home_timeline.json", param)
-    statuses = Array.new
+    response = self.get("/1/statuses/home_timeline.json", param)
+    return false unless response
+    statuses = []
     response.each do |element|
-      status = Status.new element
+      status = Status.new(element, @access_token)
       statuses << status
     end
     return statuses
@@ -22,10 +23,11 @@ class Pupil
   # @return [Array] Mention
   # @param [Hash] param
   def mentions(param={})
-    response = self.get("/statuses/mentions.json", param)
-    statuses = Array.new
+    response = self.get("/1/statuses/mentions.json", param)
+    return false unless response
+    statuses = []
     response.each do |element|
-      status = Status.new element
+      status = Status.new(element, @access_token)
       statuses << status
     end
     return statuses
@@ -49,11 +51,12 @@ class Pupil
   #   twitter.user_timeline(:screen_name => 'o_ame', :exclude => :replies).each do |status|
   #     puts "#{status.user.screen_name}: #{status.text}"
   #   end
-  def user_timeline(param={})
-    response = self.get("/statuses/user_timeline.json", param)
-    statuses = Array.new
+  def user_timeline(param)
+    response = self.get("/1/statuses/user_timeline.json", {guess_parameter(param) => param})
+    return false unless response
+    statuses = []
     response.each do |element|
-      status = Status.new element
+      status = Status.new(element, @access_token)
       statuses << status
     end
     return statuses
@@ -62,35 +65,38 @@ class Pupil
   # @return [Array] Timeline
   # @param [Hash] param
   def public_timeline(param={})
-    response = self.get("/statuses/public_timeline.json", param)
+    response = self.get("/1/statuses/public_timeline.json", param)
+    return false unless response
     statuses = Array.new
     response.each do |element|
-      status = Status.new element
+      status = Status.new(element, @access_token)
       statuses << status
     end
     return statuses
   end
   
-  def show_status(status_id)
-    response = @access_token.get("/statuses/show/#{status_id}.json").body
-    return response
-    status = Status.new response
+  def status(status_id)
+    response = self.get("/statuses/show/#{status_id}.json")
+    return false unless response
+    status = Status.new(response, @access_token)
     return status
   end
   
   def update(status, irt='')
     response = self.post(
-      "/statuses/update.json",
+      "/1/statuses/update.json",
       "status"=> status,
       "in_reply_to_status_id" => irt
     )
-    return response
+    return false unless response
+    response
   end
   
   alias_method :tweet, :update
 
-  def destroy status_id
-    response = self.post("/statuses/destroy/#{status_id}.json")
-    return response
+  def destroy(status_id)
+    response = self.post("/1/statuses/destroy/#{status_id}.json")
+    return false unless response
+    response
   end
 end

@@ -2,13 +2,13 @@
 ----------------
 
 * Fixed bug what :include(and :exclude) parameter had not worked.
-* New form are supported.
-  Classic form:
-	pupil = Pupil.new(...)
-    pupil.destroy(status_id) #=> Delete tweet
-  New one:
-	status = timeline.first
-	status.destroy
+* New form are supported.<br/>
+  Classic form:<br/>
+	`pupil = Pupil.new(…)`<br/>
+    `pupil.destroy(status_id) #=> Delete tweet`<br/>
+  New one:<br/>
+	`status = timeline.first`<br/>
+	`status.destroy`
 * Mutable scheme are supported. When Twitter REST API is changed, Schemes correspond to it automatically.
 * New ways to distinguish screen_name from user_id.
   If methods catch parameter of number, recognize it as screen_name.

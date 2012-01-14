@@ -50,7 +50,7 @@ end
 describe Pupil, "が #user_timeline を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @user_timeline = pupil.user_timeline :screen_name => pupil.screen_name
+    @user_timeline = pupil.user_timeline pupil.screen_name
   end
   
   it "Array型を返すこと" do
@@ -77,8 +77,8 @@ end
 describe Pupil, "が #follow を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @follow = pupil.follow :screen_name => KNOWN_NONFOLLOWED_USER
-    @follow_fail = pupil.follow :screen_name => UNKNOWN_USER
+    @follow = pupil.follow KNOWN_NONFOLLOWED_USER
+    @follow_fail = pupil.follow UNKNOWN_USER
   end
   
   it "フォローに成功した場合はPupil::User型を返すこと" do
@@ -93,8 +93,8 @@ end
 describe Pupil, "が #unfollow を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @unfollow = pupil.unfollow :screen_name => KNOWN_NONFOLLOWED_USER
-    @unfollow_fail = pupil.unfollow :screen_name => UNKNOWN_USER
+    @unfollow = pupil.unfollow KNOWN_NONFOLLOWED_USER
+    @unfollow_fail = pupil.unfollow UNKNOWN_USER
   end
   
   it "成功した場合はPupil::User型を返すこと" do
@@ -109,8 +109,8 @@ end
 describe Pupil, "が #block を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @block = pupil.block :screen_name => KNOWN_NONFOLLOWED_USER
-    @block_fail = pupil.block :screen_name => UNKNOWN_USER
+    @block = pupil.block KNOWN_NONFOLLOWED_USER
+    @block_fail = pupil.block UNKNOWN_USER
   end
   
   it "成功した場合はPupil::User型を返すこと" do
@@ -125,8 +125,8 @@ end
 describe Pupil, "が #unblock を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @unblock = pupil.unblock :screen_name => KNOWN_NONFOLLOWED_USER
-    @unblock_fail = pupil.unblock :screen_name => UNKNOWN_USER
+    @unblock = pupil.unblock KNOWN_NONFOLLOWED_USER
+    @unblock_fail = pupil.unblock UNKNOWN_USER
   end
   
   it "成功した場合はPupil::User型を返すこと" do

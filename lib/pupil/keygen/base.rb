@@ -6,7 +6,7 @@ class Pupil
     attr_reader :access_token_secret
     class MissingRequiredTokens < StandardError; end
 
-    def initialize opts={}
+    def initialize(opts={})
       @consumer_key = opts[:consumer_key] rescue nil
       @consumer_secret = opts[:consumer_secret] rescue nil
       @access_token = opts[:access_token] rescue nil

@@ -5,27 +5,23 @@
 
 Gem::Specification.new do |s|
   s.name = "pupil"
-  s.version = "0.1.5"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oame"]
-  s.date = "2012-01-07"
+  s.date = "2012-01-14"
   s.description = "The \"Lazy\" Twitter API Library for Ruby 1.9.x. Easy to use."
   s.email = "oame@oameya.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.md",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
-    ".document",
-    ".rspec",
     "CHANGELOG.md",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
     "README.md",
-    "README.rdoc",
     "Rakefile",
     "VERSION",
     "lib/pupil.rb",
@@ -33,6 +29,7 @@ Gem::Specification.new do |s|
     "lib/pupil/base.rb",
     "lib/pupil/blocks.rb",
     "lib/pupil/direct_messages.rb",
+    "lib/pupil/essentials.rb",
     "lib/pupil/friendships.rb",
     "lib/pupil/keygen.rb",
     "lib/pupil/keygen/base.rb",
@@ -53,7 +50,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.required_ruby_version = Gem::Requirement.new("~> 1.9.0")
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.15"
   s.summary = "The \"Lazy\" Twitter API Library for Ruby 1.9.x"
 
   if s.respond_to? :specification_version then

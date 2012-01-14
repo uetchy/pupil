@@ -1,220 +1,149 @@
 class Pupil
-  class User
-    attr_reader :contributors_enabled
-    attr_reader :created_at
-    attr_reader :default_profile
-    attr_reader :default_profile_image
-    attr_reader :description
-    attr_reader :favourites_count
-    attr_reader :follow_request_sent
-    attr_reader :followers_count
-    attr_reader :following
-    attr_reader :friends_count
-    attr_reader :geo_enabled
-    attr_reader :id
-    attr_reader :id_str
-    attr_reader :is_translator
-    attr_reader :lang
-    attr_reader :listed_count
-    attr_reader :location
-    attr_reader :name
-    attr_reader :notifications
-    attr_reader :profile_background_color
-    attr_reader :profile_background_image_url
-    attr_reader :profile_background_image_url_https
-    attr_reader :profile_background_tile
-    attr_reader :profile_image_url
-    attr_reader :profile_image_url_https
-    attr_reader :profile_link_color
-    attr_reader :profile_sidebar_border_color
-    attr_reader :profile_sidebar_fill_color
-    attr_reader :profile_text_color
-    attr_reader :profile_use_background_image
-    attr_reader :protected
-    attr_reader :screen_name
-    attr_reader :show_all_inline_media
-    attr_reader :status
-    attr_reader :statuses_count
-    attr_reader :time_zone
-    attr_reader :url
-    attr_reader :utc_offset
-    attr_reader :verified
-
-    def initialize j
-      @contributors_enabled = j["contributors_enabled"] rescue nil
-      @created_at = j["created_at"]
-      @default_profile = j["default_profile"]
-      @default_profile_image = j["default_profile_image"]
-      @description = j["description"]
-      @favourites_count = j["favourites_count"]
-      @follow_request_sent = j["follow_request_sent"]
-      @followers_count = j["followers_count"]
-      @following = j["following"]
-      @friends_count = j["friends_count"]
-      @geo_enabled = j["geo_enabled"]
-      @id = j["id"]
-      @id_str = j["id_str"]
-      @is_translator = j["is_translator"]
-      @lang = j["lang"]
-      @listed_count = j["listed_count"]
-      @location = j["location"]
-      @name = j["name"]
-      @notifications = j["notifications"]
-      @profile_background_color = j["profile_background_color"]
-      @profile_background_image_url = j["profile_background_image_url"]
-      @profile_background_image_url_https = j["profile_background_image_url_https"]
-      @profile_background_tile = j["profile_background_tile"]
-      @profile_image_url = j["profile_image_url"]
-      @profile_image_url_https = j["profile_image_url_https"]
-      @profile_link_color = j["profile_link_color"]
-      @profile_sidebar_border_color = j["profile_sidebar_border_color"]
-      @profile_sidebar_fill_color = j["profile_sidebar_fill_color"]
-      @profile_text_color = j["profile_text_color"]
-      @profile_use_background_image = j["profile_use_background_image"]
-      @protected = j["protected"]
-      @screen_name = j["screen_name"]
-      @show_all_inline_media = j["show_all_inline_media"]
-      @status = Pupil::Status.new j["status"] rescue nil
-      @statuses_count = j["statuses_count"]
-      @time_zone = j["time_zone"]
-      @url = j["url"]
-      @utc_offset = j["utc_offset"]
-      @verified = j["verified"]
+  class Scheme
+    protected
+    include Essentials
+    
+    def method_missing(action, *args)
+      return @element[action.to_s] rescue nil
+    end
+    
+    public
+    
+    def initialize(element, access_token=nil)
+      @access_token = access_token
+      @element = element
+    end
+    
+    def methods() @element.keys.map{|k|k.to_sym} ; end
+  end
+  
+  class User < Scheme
+    def status
+      Pupil::Status.new(@element["status"], @access_token) rescue nil
+    end
+    
+    def reply(sentence, status=nil)
+      response = self.post(
+        "/1/statuses/update.json",
+        "status"=> "@#{@element[:screen_name]} #{sentence}",
+        "in_reply_to_status_id" => status
+      )
+      return response
     end
   end
   
-  class URL
-    attr_reader :url
-    attr_reader :expanded_url
-    attr_reader :start
-    attr_reader :end
-
-    def initialize(element)
-      @url = element.elements['url'].text()
-      @expanded_url = element.elements['expanded_url'].text()
-      @start = element.attributes['start']
-      @end = element.attributes['end']
+  class Status < Scheme
+    def user() Pupil::User.new(@element["user"], @access_token) rescue nil; end
+    
+    def source()
+      @element["source"] =~ /href=\"(.+?)\".+?>(.+?)</
+      {:url => $1, :name => $2}
+    end
+    
+    def entities() Pupil::Entities.new(@element["entities"]) rescue nil; end
+    
+    def destroy()
+      self.post("/1/statuses/destroy/#{@element["id"]}.json")
+    end
+    
+    alias_method :delete, :destroy
+  end
+  
+  class List < Scheme
+    def user() Pupil::User.new(@element["user"], @access_token) rescue nil; end
+    
+    def statuses(param={})
+      response = self.get("/1/lists/statuses.json", {:list_id => @element["id_str"]}.update(param))
+      return false unless response
+      statuses = []
+      response.each do |status|
+        statuses << Pupil::Status.new(status, @access_token)
+      end
+      return statuses
+    end
+    
+    def subscribers(param={})
+      response = self.get("/1/lists/subscribers.json", {:list_id => @element["id_str"]}.update(param))
+      return false unless response
+      users = []
+      response["users"].each do |user|
+        users << Pupil::User.new(user, @access_token)
+      end
+      return users
+    end
+    
+    def members(param={})
+      response = self.get("/1/lists/members.json", {:list_id => @element["id_str"]}.update(param))
+      return false unless response
+      users = []
+      response["users"].each do |u|
+        user = User.new(u.update("_list_id" => @element["id_str"]), @access_token)
+        def user.destroy()
+          response = self.post("/1/lists/members/destroy.json", {:list_id => @element["_list_id"], :user_id => @element["id_str"]})
+        end
+        users << user
+      end
+      return users
+    end
+    
+    def add(param)
+      response = self.post("/1/lists/members/create.json", {:list_id => @element["id_str"], guess_parameter(param) => param})
+      return List.new(response)
+    end
+    
+    def strike(param, opts={})
+      response = self.post("/1/lists/members/destroy.json", {guess_parameter(param) => param, :list_id => @element["id_str"]}.update(opts))
+      return response
+    end
+    
+    alias_method :off, :strike
+    
+    def destroy()
+      response = self.post("/1/lists/destroy.json", {:list_id => @element["id_str"]})
+      return List.new(response)
+    end
+    
+    alias_method :delete, :destroy
+  end
+  
+  class Entities < Scheme
+    def urls()
+      urls = []
+      @element["urls"].each do |url|
+        urls << Pupil::URL.new(url)
+      end
+      return urls
+    rescue
+      nil
+    end
+    
+    def hashtags()
+      hashtags = []
+      @element["hashtags"].each do |hashtag|
+        hashtags << Pupil::Hashtag.new(hashtag)
+      end
+      return hashtags
+    rescue
+      nil
+    end
+    
+    def user_mentions()
+      user_mentions = []
+      @element["user_mentions"].each do |user_mention|
+        user_mentions << Pupil::UserMention.new(user_mention)
+      end
+      return user_mentions
+    rescue
+      nil
     end
   end
   
-  class Status
-    attr_reader :contributors
-    attr_reader :coordinates
-    attr_reader :created_at
-    attr_reader :favorited
-    attr_reader :geo
-    attr_reader :id
-    attr_reader :id_str
-    attr_reader :in_reply_to_screen_name
-    attr_reader :in_reply_to_status_id
-    attr_reader :in_reply_to_status_id_str
-    attr_reader :in_reply_to_user_id
-    attr_reader :in_reply_to_user_id_str
-    attr_reader :place
-    attr_reader :retweet_count
-    attr_reader :retweeted
-    attr_reader :source
-    attr_reader :text
-    attr_reader :truncated
-    attr_reader :user
-
-    def initialize j
-      @contributors = j["contributors"]
-      @coordinates = j["coordinates"]
-      @created_at = j["created_at"]
-      @favorited = j["favorited"]
-      @geo = j["geo"]
-      @id = j["id"]
-      @id_str = j["id_str"]
-      @in_reply_to_screen_name = j["in_reply_to_screen_name"]
-      @in_reply_to_status_id = j["in_reply_to_status_id"]
-      @in_reply_to_status_id_str = j["in_reply_to_status_id_str"]
-      @in_reply_to_user_id = j["in_reply_to_user_id"]
-      @in_reply_to_user_id_str = j["in_reply_to_user_id_str"]
-      @place = j["place"]
-      @retweet_count = j["retweet_count"]
-      @retweeted = j["retweeted"]
-      j["source"] =~ /href=\"(.+?)\".+?>(.+?)</
-      @source = {:url => $1, :name => $2}
-      @text = j["text"]
-      @truncated = j["truncated"]
-      @user = Pupil::User.new j["user"] rescue nil
-    end
-  end
+  class URL < Scheme; end
+  class Hashtag < Scheme; end
+  class UserMention < Scheme; end
   
-  class List
-    attr_reader :id
-    attr_reader :name
-    attr_reader :full_name
-    attr_reader :slug
-    attr_reader :description
-    attr_reader :subscriber_count
-    attr_reader :member_count
-    attr_reader :uri
-    attr_reader :following
-    attr_reader :mode
-    attr_reader :user
-
-    def initialize(element)
-      @id = element.elements['id'].text()
-      @name = element.elements['name'].text()
-      @full_name = element.elements['full_name'].text()
-      @slug = element.elements['slug'].text()
-      @description = element.elements['description'].text()
-      @subscriber_count = element.elements['subscriber_count'].text()
-      @member_count = element.elements['member_count'].text()
-      @uri = element.elements['uri'].text()
-      @following = element.elements['following'].text()
-      @mode = element.elements['mode'].text()
-      @user = Pupil::User.new(element.elements['user'])
-    end
-  end
-  
-  class Entities
-    attr_reader :user_mentions
-    attr_reader :urls
-    attr_reader :hashtags
-
-    def initialize(element)
-      @user_mentions = UserMention.new(element.elements['user_mention'])
-      @urls = Pupil::URL.new(element.elements['urls'])
-      @hashtags = Pupil::Hashtag.new(element.elements['hashtags'])
-    end
-  end
-  
-  class Hashtag
-    attr_reader :text
-    attr_reader :start
-    attr_reader :end
-
-    def initialize(element)
-      @text = element.elements['text'].text()
-      @start = element.attributes['start']
-      @end = element.attributes['end']
-    end
-  end
-  
-  class DirectMessage
-    attr_reader :id
-    attr_reader :sender_id
-    attr_reader :text
-    attr_reader :recipient_id
-    attr_reader :created_at
-    attr_reader :sender_screen_name
-    attr_reader :recipient_screen_name
-    attr_reader :sender
-    attr_reader :recipient
-
-    def initialize(element)
-      @id = element.elements['id'].text()
-      @sender_id = element.elements['sender_id'].text()
-      @text = element.elements['text'].text()
-      @recipient_id = element.elements['recipient_id'].text()
-      @created_at = element.elements['created_at'].text()
-      @sender_screen_name = element.elements['sender_screen_name'].text()
-      @recipient_screen_name= element.elements['recipient_screen_name'].text()
-      @sender = Pupil::User.new(element.elements['sender'])
-      @recipient = Pupil::User.new(element.elements['recipient'])
-    end
+  class DirectMessage < Scheme
+    def sender() Pupil::User.new(@element["sender"], @access_token) rescue nil; end
+    def recipient() Pupil::User.new(@element["recipient"], @access_token) rescue nil; end
   end
 end

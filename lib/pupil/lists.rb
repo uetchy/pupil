@@ -1,34 +1,22 @@
 class Pupil
-  # @param [Fixnum] id list id
-  # @param [String] ids id comma separated
-  # @return [Hash] response
-  def addlist(listid,ids)
-    response = @access_token.post("http://api.twitter.com/1/#{@username}/#{listid}/create_all.xml?user_id=#{ids}")
-    return response
-  end
-
   # @return [Hash] lists
-  def lists
-    response = @access_token.get("http://api.twitter.com/1/#{@username}/lists.xml")
-    doc = REXML::Document.new(response.body)
-    return false if doc.is_error?
+  def lists(param={})
+    if param[:contains]
+      response = self.get("/1/lists/memberships.json", param.reject{|p|p==:contains}.update(guess_parameter(param[:contains]) => param[:contains]))
+      response = response["lists"]
+    else
+      response = self.get("/1/lists/all.json", param)
+    end
+    return [] unless response
     lists = Array.new
-    doc.get_elements('/lists_list/lists/list').each{|element|
-      list = List.new(element)
-      lists << list
-    }
+    response.each do |list|
+      lists << List.new(list, @access_token)
+    end
     return lists
   end
-
-  def lists_member_create(listid,id)
-    begin
-      response = @access_token.post("http://api.twitter.com/1/#{@username}/#{listid}/members.xml?id=#{id}")
-    rescue
-      return false
-    else
-      return response
-    end
+  
+  def create_list(name, param={})
+    response = self.post("/1/lists/create.json", {:name => name}.update(param))
+    return List.new(response, @access_token)
   end
-  
-  
 end

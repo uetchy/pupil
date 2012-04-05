@@ -1,6 +1,6 @@
 class Pupil
   def friends_ids(name=@screen_name)
-    response = self.get("/friends/ids/#{name}.json")
+    response = self.get("/1/friends/ids/#{name}.json")
     return false unless response
     ids = []
     response.each do |element|

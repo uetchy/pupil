@@ -33,7 +33,7 @@ class Pupil
   # @option param [String] :colors #=> :sidebar_border
   # @option param [String] :colors #=> :sidebar_fill
   # @option param [String] :colors #=> :text
-  def update_profile param
+  def update_profile(param)
     if param.key? :colors
       opt = Hash.new
       opt.update({:profile_background_color => param[:colors][:background]}) if param[:colors][:background]

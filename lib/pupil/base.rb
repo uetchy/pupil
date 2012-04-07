@@ -15,14 +15,14 @@ class Pupil
     @screen_name = key[:screen_name]
 
     @consumer = OAuth::Consumer.new(
-    key[:consumer_key],
-    key[:consumer_secret],
-    :site => TWITTER_API_URL
+      key[:consumer_key],
+      key[:consumer_secret],
+      :site => TWITTER_API_URL
     )
     @access_token = OAuth::AccessToken.new(
     @consumer,
-    key[:access_token],
-    key[:access_token_secret]
+      key[:access_token],
+      key[:access_token_secret]
     )
   end
   

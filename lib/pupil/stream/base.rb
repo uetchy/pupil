@@ -26,9 +26,10 @@ class Pupil
     # @return [Pupil::Stream::Shash, Pupil::Stream::Status] event variable supported :status, :retweeted, :favorite, :friends and :delete
     def start(type, param=nil, &block)
       raise ArgumentError unless block_given?
-
-      run_get_stream type, param, &block
+      run_get_stream(type, param, &block)
     end
+    
+    alias_method :run, :start
 
     def run_get_stream(type, param=nil, &block)
       uri = URI.parse(STREAM_APIS[type] % serialize_parameter(param))
@@ -65,12 +66,14 @@ class Pupil
     end
 
     def guess_event status
-      if status["delete"]
-        return Pupil::Stream::Hash.new(status["delete"]["status"], :delete)
+      if status["event"]
+        return Pupil::Stream::Hash.new(status, status["event"].to_sym)
       elsif status["friends"]
         return Pupil::Stream::Array.new(status["friends"], :friends)
-      elsif status["event"] == "favorite"
-        return Pupil::Stream::Hash.new(status, :favorite)
+      elsif status["delete"]
+        return Pupil::Stream::Hash.new(status["delete"]["status"], :delete)
+      elsif status["direct_message"]
+        return Pupil::Stream::Hash.new(status["direct_message"], :direct_message)
       elsif status["retweeted_status"]
         return Pupil::Stream::Status.new(status, @access_token, :retweeted)
       elsif status["text"]
@@ -88,7 +91,7 @@ class Pupil
       def initialize(status, access_token, event=nil)
         super(status, access_token)
         @event = (event)? event : :status
-        #@retweeted_status = status["retweeted_status"]
+        @retweeted_status = (event == :retweeted)? status["retweeted_status"] : nil
       end
     end
 
@@ -100,6 +103,10 @@ class Pupil
         super()
         self.update(status)
         @event = event
+      end
+      
+      def method_missing(action, *args)
+        return self[action.to_s] rescue nil
       end
     end
 

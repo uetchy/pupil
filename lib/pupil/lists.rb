@@ -15,8 +15,8 @@ class Pupil
     return lists
   end
   
-  def create_list(name, param={})
-    response = self.post("/1/lists/create.json", {:name => name}.update(param))
+  def create_list(name, option={})
+    response = self.post("/1/lists/create.json", {:name => name}.update(option))
     return List.new(response, @access_token)
   end
 end

@@ -51,8 +51,8 @@ class Pupil
   #   twitter.user_timeline(:screen_name => 'o_ame', :exclude => :replies).each do |status|
   #     puts "#{status.user.screen_name}: #{status.text}"
   #   end
-  def user_timeline(param)
-    response = self.get("/1/statuses/user_timeline.json", {guess_parameter(param) => param})
+  def user_timeline(target, option={})
+    response = self.get("/1/statuses/user_timeline.json", {guess_parameter(target) => target}.update(option))
     return false unless response
     statuses = []
     response.each do |element|
@@ -73,6 +73,66 @@ class Pupil
       statuses << status
     end
     return statuses
+  end
+  
+  def retweeted_by_me(param={})
+    response = self.get("/1/statuses/retweeted_by_me.json", param)
+    return false unless response
+    statuses = Array.new
+    response.each do |element|
+      status = Status.new(element, @access_token)
+      statuses << status
+    end
+    return statuses
+  end
+  
+  def retweeted_to_me(param={})
+    response = self.get("/1/statuses/retweeted_to_me.json", param)
+    return false unless response
+    statuses = Array.new
+    response.each do |element|
+      status = Status.new(element, @access_token)
+      statuses << status
+    end
+    return statuses
+  end
+  
+  def retweets_of_me(param={})
+    response = self.get("/1/statuses/retweets_of_me.json", param)
+    return false unless response
+    statuses = Array.new
+    response.each do |element|
+      status = Status.new(element, @access_token)
+      statuses << status
+    end
+    return statuses
+  end
+  
+  def retweeted_to_user(param={})
+    response = self.get("/1/statuses/retweeted_to_user.json", param)
+    return false unless response
+    statuses = Array.new
+    response.each do |element|
+      status = Status.new(element, @access_token)
+      statuses << status
+    end
+    return statuses
+  end
+  
+  def retweeted_by_user(param={})
+    response = self.get("/1/statuses/retweeted_by_user.json", param)
+    return false unless response
+    statuses = Array.new
+    response.each do |element|
+      status = Status.new(element, @access_token)
+      statuses << status
+    end
+    return statuses
+  end
+  
+  def oembed(param={})
+    response = self.get("/1/statuses/oembed.json", param)
+    return response
   end
   
   def status(status_id)

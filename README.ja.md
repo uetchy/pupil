@@ -1,32 +1,32 @@
 Pupil
 =============
 
-Pupil is "Lazy" Twitter API Library for Ruby 1.9.x.
+Pupil はRuby 1.9.xのための"怠惰"なTwitter APIライブラリです。
 
-Features
+フューチャー
 -------------
 
-* Almost Twitter REST API are wrapped. However, some API does not support yet.
-* Twitter Streaming API are supported experimentally.
-* Intuitive syntax.
+* 殆どのREST APIをサポートしていますが、一部のAPIはサポートされていません。
+* Twitter Streaming APIを実験的にサポート
+* Rubyライクな直感的で書きやすい文法
 
-Problems
+問題
 -------------
 
-* Some REST API are not supported.
+* 一部のAPIをサポートしていません
 
-Requirement
+動作環境
 -------------
 
-* json and oauth gem
+* json及びoauth gem
 * Ruby 1.9.x
 
-Installation
+インストール
 -------------
 
 	gem install pupil
 
-Examples
+簡単な使用例
 -------------
 
 	require "pupil"
@@ -40,16 +40,16 @@ Examples
   
 	pupil = Pupil.new oauth_key
 	
-	# Get timeline statuses without replies
+	# リプライが含まれないタイムラインを取得する
 	pupil.timeline :count => 50, :exclude => :replies
 	
-	# Follow User
+	# @twitterapi をフォローする
 	pupil.follow :twitterapi
 	
-	# Update URL on profile
+	# プロフィールのURLをアップデートする
 	pupil.update_profile :url => "http://oameya.com"
 
-Using Streaming API
+Streaming API を使ってみる
 
 	require "pupil/stream"
 	
@@ -62,26 +62,26 @@ Using Streaming API
 	
 	stream = Pupil::Stream.new oauth_key
 	
-	# Userstream
+	# ユーザーストリーム
 	stream.start :userstream do |status|
 		if status.event == :retweeted
-			puts "This is retweeted status! => #{status.text}"
+			puts "これはリツイートされた呟きです！ => #{status.text}"
 		end
 	end
 	
-	# Search stream
-	stream.start :search, :track => "#MerryChristmas" do |status|
-		puts "Merry christmas, #{status.user.screen_name}!"
+	# 検索ストリーム
+	stream.start :search, :track => "#メリークリスマス" do |status|
+		puts "メリー・クリスマス、#{status.user.screen_name}！"
 	end
 
-Making `oauth_key`
+`oauth_key` を作る
 
 	require "pupil/keygen"
 	
 	keygen = Pupil::Keygen.new
-	keygen.interactive #=> Generate pupil_key interactively
+	keygen.interactive #=> インタラクティブにoauth_keyを生成
 
-Contributing to pupil
+協力
 -------------
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
@@ -92,14 +92,13 @@ Contributing to pupil
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-Credits
+クレジット
 -------------
 
-Developer: [Oame](http://twitter.com/o_ame)
+開発者: [おおあめ](http://twitter.com/o_ame)
 
-License
+ライセンス
 -------------
 
-Copyright (c) 2011 Oame. See LICENSE.txt for
-further details.
+Copyright (c) 2011 おおあめ. LICENSE.txt を見て詳しい情報を得てください。
 

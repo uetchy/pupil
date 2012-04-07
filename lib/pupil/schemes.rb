@@ -14,7 +14,7 @@ class Pupil
       @element = element
     end
     
-    def methods() @element.keys.map{|k|k.to_sym} ; end
+    def params() @element.keys.map{|k|k.to_sym} ; end
   end
   
   class User < Scheme
@@ -42,11 +42,41 @@ class Pupil
     
     def entities() Pupil::Entities.new(@element["entities"]) rescue nil; end
     
-    def destroy()
-      self.post("/1/statuses/destroy/#{@element["id"]}.json")
+    def destroy(param={})
+      self.post("/1/statuses/destroy/#{@element["id"]}.json", param)
     end
     
     alias_method :delete, :destroy
+    
+    def retweet(param={})
+      self.post("/1/statuses/retweet/#{@element["id"]}.json", param)
+    end
+    
+    def retweets(param={})
+      response = self.get("/1/statuses/retweets/#{@element["id"]}.json", param)
+      return false unless response
+      statuses = []
+      response.each do |status|
+        statuses << Pupil::Status.new(status, @access_token)
+      end
+      return statuses
+    end
+    
+    def retweeted_by(param={})
+      response = self.get("/1/statuses/#{@element["id"]}/retweeted_by.json", param)
+      return false unless response
+      users = []
+      response.each do |user|
+        users << Pupil::User.new(user, @access_token)
+      end
+      return users
+    end
+    
+    def retweeted_by_user_ids(param={})
+      response = self.get("/1/statuses/#{@element["id"]}/retweeted_by/ids.json", param)
+      return false unless response
+      return response
+    end
   end
   
   class List < Scheme
@@ -145,5 +175,17 @@ class Pupil
   class DirectMessage < Scheme
     def sender() Pupil::User.new(@element["sender"], @access_token) rescue nil; end
     def recipient() Pupil::User.new(@element["recipient"], @access_token) rescue nil; end
+    
+    # Delete direct message
+    # @param [Fixnum] dm_id message id that you want to delete
+    # @return [Hash] response
+    def destroy()
+      begin
+        response = self.post("/1/direct_messages/destroy/#{@element["id"]}.json")
+      rescue
+        return false
+      end
+      return response
+    end
   end
 end

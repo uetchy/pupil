@@ -1,3 +1,11 @@
+0.2.1
+----------------
+
+* Unknown resistance function are supported.<br />
+  If called method is not implemented, Pupil recognize API endpoint by method name and tries access to unknown API automatically.<br />
+  e.g. pupil.account_totals => GET /1/account/totals.json
+* Stream::Hash support
+
 0.2.0
 ----------------
 
@@ -11,7 +19,7 @@
 	`status.destroy`
 * Mutable scheme are supported. When Twitter REST API is changed, Schemes correspond to it automatically.
 * New ways to distinguish screen_name from user_id.
-  If methods catch parameter of number, recognize it as screen_name.
+  If methods catch parameter of number, recognize it as user_id.
 * Almost Lists API are supported.
 
 0.1.5

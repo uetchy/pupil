@@ -1,9 +1,9 @@
 class Pupil
   def friends_ids(name=@screen_name)
-    response = self.get("/friends/ids/#{name}.json")
+    response = self.get("/1/friends/ids/#{name}.json")
     return false unless response
     ids = []
-    response.each do |element|
+    response["ids"].each do |element|
       ids << element
     end
     return ids
@@ -13,7 +13,33 @@ class Pupil
     response = self.get("/1/followers/ids/#{name}.json")
     return false unless response
     ids = []
-    response.each do |element|
+    response["ids"].each do |element|
+      ids << element
+    end
+    return ids
+  end
+  
+  def no_retweet_ids()
+    response = self.get("/1/friendships/no_retweet_ids.json")
+    return false unless response
+    return response
+  end
+  
+  def outgoing(param={})
+    response = self.get("/1/friendships/outgoing.json")
+    return false unless response
+    ids = []
+    response["ids"].each do |element|
+      ids << element
+    end
+    return ids
+  end
+  
+  def incoming(param={})
+    response = self.get("/1/friendships/incoming.json")
+    return false unless response
+    ids = []
+    response["ids"].each do |element|
       ids << element
     end
     return ids
@@ -36,6 +62,12 @@ class Pupil
   
   alias_method "relationship?", "friendship?"
   alias_method "friendships_exists?", "friendship?"
+  
+  def update_friendships(target, param)
+    response = self.post("/1/friendships/update.json", param)
+    return false unless response
+    return response
+  end
 
   # Follow user for screen_name
   # @param [String] name screen_name

@@ -1,3 +1,9 @@
+class Hash
+  def method_missing(action, *args)
+    return self[action.to_s] rescue raise NoMethodError
+  end
+end
+
 class Pupil
   module Essentials
     # @param [Hash] parameter

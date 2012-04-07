@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "pupil"
-  s.version = "0.2.2"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oame"]
@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.email = "oame@oameya.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
+    "README.ja.md",
     "README.md"
   ]
   s.files = [
@@ -21,6 +22,7 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
+    "README.ja.md",
     "README.md",
     "Rakefile",
     "VERSION",
@@ -31,6 +33,8 @@ Gem::Specification.new do |s|
     "lib/pupil/direct_messages.rb",
     "lib/pupil/essentials.rb",
     "lib/pupil/friendships.rb",
+    "lib/pupil/general.rb",
+    "lib/pupil/help.rb",
     "lib/pupil/keygen.rb",
     "lib/pupil/keygen/base.rb",
     "lib/pupil/lists.rb",
@@ -41,8 +45,8 @@ Gem::Specification.new do |s|
     "lib/pupil/stream/base.rb",
     "lib/pupil/users.rb",
     "pupil.gemspec",
-    "samples/ff-dumper.rb",
-    "samples/generate-key.rb",
+    "samples/key-generator.rb",
+    "samples/userstream-test.rb",
     "spec/pupil_spec.rb",
     "spec/spec_helper.rb"
   ]

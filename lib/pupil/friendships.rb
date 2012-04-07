@@ -1,6 +1,7 @@
 class Pupil
   def friends_ids(name=@screen_name)
-    response = self.get("/1/friends/ids/#{name}.json")
+    name ||= self.profile.screen_name
+    response = self.get("/1/friends/ids.json", {guess_parameter(name) => name})
     return false unless response
     ids = []
     response["ids"].each do |element|
@@ -10,7 +11,8 @@ class Pupil
   end
 
   def followers_ids(name=@screen_name)
-    response = self.get("/1/followers/ids/#{name}.json")
+    name ||= self.profile.screen_name
+    response = self.get("/1/followers/ids.json", {guess_parameter(name) => name})
     return false unless response
     ids = []
     response["ids"].each do |element|
@@ -51,7 +53,7 @@ class Pupil
   # @return [Boolean] return true if paired users have friendship, or ruturn false
   def friendship?(src, dst)
     param = {"source_#{guess_parameter(src)}" => src, "target_#{guess_parameter(dst)}" => dst}
-    response = self.get("/friendships/show.json", param)
+    response = self.get("/1/friendships/show.json", param)
     return nil unless response
     if response["relationship"]["source"]["following"] == true && response["relationship"]["target"]["following"] == true then
       return true
@@ -73,7 +75,7 @@ class Pupil
   # @param [String] name screen_name
   # @return [Hash] response
   def follow(param)
-    response = self.post("/friendships/create.json", {guess_parameter(param) => param})
+    response = self.post("/1/friendships/create.json", {guess_parameter(param) => param})
     return false unless response
     User.new(response, @access_token)
   end
@@ -82,7 +84,7 @@ class Pupil
   # @param [String] name screen_name
   # @return [Hash] response
   def unfollow(param)
-    response = self.post("/friendships/destroy.json", {guess_parameter(param) => param})
+    response = self.post("/1/friendships/destroy.json", {guess_parameter(param) => param})
     return false unless response
     User.new response
   end

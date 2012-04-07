@@ -2,10 +2,12 @@ class Pupil
   # Verify credentials
   # @return [Pupil::User] User credentials
   def verify_credentials
-    response = self.get("/account/verify_credentials.json")
+    response = self.get("/1/account/verify_credentials.json")
     user = User.new response
     return user
   end
+  
+  alias_method :profile, :verify_credentials
 
   # Rate limit statuses
   # @return [Hash] Rate limit statuses

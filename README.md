@@ -1,15 +1,19 @@
-pupil
+Pupil
 =============
 
 Pupil is "Lazy" Twitter API Library for Ruby 1.9.x.
-Easy to use.
 
-Features / Problems
+Features
 -------------
 
 * Almost Twitter REST API are wrapped. However, some API does not support yet.
 * Twitter Streaming API are supported experimentally.
 * Intuitive syntax.
+
+Problems
+-------------
+
+* Some REST API are not supported.
 
 Requirement
 -------------
@@ -26,23 +30,17 @@ Examples
 -------------
 	require "pupil"
 	
-	CONSUMER = {
-		:app_name => "Web Service",     # Optional
-		:app_author => "o_ame",         # Optional
-		:consumer_key => "something",   # Required
-		:consumer_secret => "something" # Required
-	}
-	
-	pupil_key = {
-		:screen_name => "o_ame",            # Required
+	oauth_key = {
+	  :consumer_key => "something",       # Required
+		:consumer_secret => "something",    # Required
 		:access_token => "something",       # Required
 		:access_token_secret => "something" # Required
-	}.update CONSUMER
+	}
 	
-	pupil = Pupil.new pupil_key
+	pupil = Pupil.new oauth_key
 	
 	# Get timeline statuses without replies
-	pupil.home_timeline :count => 50, :exclude => :replies
+	pupil.timeline :count => 50, :exclude => :replies
 	
 	# Follow User
 	pupil.follow :twitterapi
@@ -54,32 +52,25 @@ Using Streaming API
 
 	require "pupil/stream"
 	
-	CONSUMER = {
-		:app_name => "Web Service",
-		:app_author => "o_ame",
+	oauth_key = {
 		:consumer_key => "something",
-		:consumer_secret => "something"
-	}
-	
-	pupil_key = {
-		:screen_name => "o_ame",
+		:consumer_secret => "something",
 		:access_token => "something",
 		:access_token_secret => "something"
-	}.update CONSUMER
+	}
 	
-	stream = Pupil::Stream.new pupil_key
+	stream = Pupil::Stream.new oauth_key
 	
 	# Userstream
 	stream.start :userstream do |status|
-		puts status.event #=> Show type of event
 		if status.event == :retweeted
-			puts "#{status.user.screen_name}: #{status.text}"
+			puts "This is retweeted status! => #{status.text}"
 		end
 	end
 	
 	# Search stream
 	stream.start :search, :track => "#MerryChristmas" do |status|
-		puts "#{status.user.screen_name}: #{status.text}"
+		puts "Merry christmas, #{status.user.screen_name}!"
 	end
 
 Making `pupil_key`

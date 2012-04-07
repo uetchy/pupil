@@ -9,7 +9,7 @@ class Pupil
   # @option param [Symbol] :include #=> [:rts]
   # @option param [Symbol] :exclude #=> [:replies]
   # @option param [Symbol] :contributor_details
-  def home_timeline(param={})
+  def timeline(param={})
     response = self.get("/1/statuses/home_timeline.json", param)
     return false unless response
     statuses = []
@@ -19,6 +19,8 @@ class Pupil
     end
     return statuses
   end
+  
+  alias_method :home_timeline, :timeline
   
   # @return [Array] Mention
   # @param [Hash] param
@@ -61,6 +63,9 @@ class Pupil
     end
     return statuses
   end
+  
+  alias_method :timeline_for, :user_timeline
+  
   # Returning public timeline
   # @return [Array] Timeline
   # @param [Hash] param

@@ -28,15 +28,16 @@ Installation
 
 Examples
 -------------
+
 	require "pupil"
 	
 	oauth_key = {
-	  :consumer_key => "something",       # Required
-		:consumer_secret => "something",    # Required
-		:access_token => "something",       # Required
-		:access_token_secret => "something" # Required
+		:consumer_key => "something",
+		:consumer_secret => "something",
+		:access_token => "something",
+		:access_token_secret => "something"
 	}
-	
+  
 	pupil = Pupil.new oauth_key
 	
 	# Get timeline statuses without replies

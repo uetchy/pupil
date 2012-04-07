@@ -1,7 +1,20 @@
+0.2.2
+----------------
+
+* New method Pupil#timeline is the some as Pupil#home_timeline
+* New method Pupil#timeline_for is the some as Pupil#user_timeline
+* Not necessary to give @screen_name parameter when Pupil.new . It is now on optionally parameter.
+* Pupil#followers_ids and Pupil#friends_ids returns Array of ids
+
+0.2.1
+----------------
+
+* Some bug fixed.
+
 0.2.0
 ----------------
 
-* Fixed bug what :include(and :exclude) parameter had not worked.
+* Fixed bug that :include(and :exclude) parameter had not worked.
 * New form are supported.<br/>
   Classic form:<br/>
 	`pupil = Pupil.new(…)`<br/>

@@ -1,4 +1,9 @@
-0.3
+0.3.1
+----------------
+
+* Fixed bugs in Pupil::Stream#follow
+
+0.3.0
 ----------------
 
 * Unknown resistance function are supported.<br />

@@ -66,7 +66,9 @@ class Pupil
     end
 
     def guess_event status
-      if status["event"]
+      if status["event"] && status["event"]["follow"]
+        return Pupil::Stream::User.new(status["target"], @access_token, :follow)
+      elsif status["event"]
         return Pupil::Stream::Hash.new(status, status["event"].to_sym)
       elsif status["friends"]
         return Pupil::Stream::Array.new(status["friends"], :friends)
@@ -77,7 +79,7 @@ class Pupil
       elsif status["retweeted_status"]
         return Pupil::Stream::Status.new(status, @access_token, :retweeted)
       elsif status["text"]
-        return Pupil::Stream::Status.new(status, @access_token)
+        return Pupil::Stream::Status.new(status, @access_token, :status)
       else
         return Pupil::Stream::Hash.new(status, :unknown)
       end
@@ -118,6 +120,16 @@ class Pupil
         super(status)
         #self.update(status)
         @event = event
+      end
+    end
+    
+    # Stream User
+    class User < Pupil::User
+      attr_reader :event
+
+      def initialize(status, access_token, event=nil)
+        super(status, access_token)
+        @event = :follow
       end
     end
   end

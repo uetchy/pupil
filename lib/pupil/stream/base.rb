@@ -67,7 +67,7 @@ class Pupil
 
     def guess_event status
       if status["event"] && status["event"]["follow"]
-        return Pupil::Stream::User.new(status["target"], @access_token, :follow)
+        return Pupil::Stream::User.new(status["source"], @access_token, :follow)
       elsif status["event"]
         return Pupil::Stream::Hash.new(status, status["event"].to_sym)
       elsif status["friends"]

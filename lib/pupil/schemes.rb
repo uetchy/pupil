@@ -15,6 +15,7 @@ class Pupil
     end
     
     def params() @element.keys.map{|k|k.to_sym} ; end
+    alias_method :available_methods, :params
   end
   
   class User < Scheme

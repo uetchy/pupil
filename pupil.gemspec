@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "pupil"
-  s.version = "0.3.0"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oame"]
-  s.date = "2012-04-07"
+  s.date = "2012-05-14"
   s.description = "The \"Lazy\" Twitter API Library for Ruby 1.9.x. Easy to use."
   s.email = "oame@oameya.com"
   s.extra_rdoc_files = [

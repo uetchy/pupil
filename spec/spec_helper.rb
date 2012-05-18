@@ -8,5 +8,5 @@ require "pupil"
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  require "#{File.dirname(__FILE__)}/pupil_testkey.rb"
+  require "#{File.dirname(__FILE__)}/keys/pupil_testkey.rb"
 end

@@ -100,6 +100,6 @@ Developer: [Oame](http://twitter.com/o_ame)
 License
 -------------
 
-Copyright (c) 2011 Oame. See LICENSE.txt for
+Copyright (c) 2011 Oame. See LICENSE for
 further details.
 

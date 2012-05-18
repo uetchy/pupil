@@ -1,0 +1,98 @@
+#!/usr/bin/env ruby
+
+require "pp"
+$LOAD_PATH << File.join(File.dirname(File.expand_path(__FILE__)), "../")
+require "lib/pupil"
+require "lib/pupil/keygen"
+require "yaml"
+require "fileutils"
+require "readline"
+
+class Credentials
+  attr_accessor :credentials
+
+  def initialize(file)
+    FileUtils.touch file unless FileTest.exists? file
+    @credentials_file = file
+    @credentials = YAML.load_file(file)
+  end
+
+  def save
+    YAML.dump(@credentials, File.open(@credentials_file, "w"))
+  end
+  
+  def create
+    token = Pupil::Keygen.new.interactive
+    @credentials ||= Hash.new
+    @credentials.update({token[:screen_name] => token.reject{|k, v| k == :screen_name }})
+    self.save
+    return token
+  end
+end
+
+# Initialize
+home_dir = `echo $HOME`.strip
+eyedrops_dir = File.join(home_dir, ".eyedrops")
+credentials_file = File.join(eyedrops_dir, "credentials")
+
+Dir.mkdir eyedrops_dir unless FileTest.exists? eyedrops_dir
+cred = Credentials.new(credentials_file)
+
+unless cred.credentials
+  cred.create
+end
+
+puts "Eyedrops, the interactive twitter with Pupil #{Pupil::VERSION}"
+
+num = 1
+cred.credentials.keys.each do |name|
+  puts "#{num}. #{name}"
+  num += 1
+end
+puts "#{num}. Add Account"
+sel = Readline.readline("Choose account: ", false).to_i
+if sel == cred.credentials.keys.size + 1
+  cred.create
+  sel = cred.credentials.keys.size
+end
+
+puts "Preparing Pupil instance..."
+pupil = Pupil.new(cred.credentials[cred.credentials.keys[sel-1]])
+puts "Signed with @#{cred.credentials.keys[sel-1]}"
+
+while(true)
+  begin
+    line = Readline.readline("eyedrops> ", true)
+    break if line =~ /^(exit|quit)$/
+
+    arr = line.split(" ")
+    command = arr.first
+    option  = arr[1, arr.size]
+
+    case command.to_sym
+    when :help
+      puts <<-'EOD'
+      ### External Commands ###
+      help - Now you typed it.
+      exit|quit - Exit eyedrops.
+      
+      ### Examples ###
+      eyedrops> puts pupil.profile.id
+      237079012
+      => nil
+      eyedrops> pupil.timeline :count => 5
+      #<Pupil::Status:0x007fafb34b5720>
+      #<Pupil::Status:0x007fafb34b56f8>
+      #<Pupil::Status:0x007fafb34b56d0>
+      #<Pupil::Status:0x007fafb34b56a8>
+      #<Pupil::Status:0x007fafb34b5680>
+      => nil
+      EOD
+    else
+      result = eval(line)
+      puts "=> #{result.inspect}"
+    end
+  rescue => exception
+    puts exception
+  end
+end

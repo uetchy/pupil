@@ -6,7 +6,7 @@ Pupil is "Lazy" Twitter API Library for Ruby 1.9.x.
 Features
 -------------
 
-* Pupil is Dynamic API Wrapper, can respond flexibly to change specifications of the Twitter API.
+* Pupil is Dynamic Twitter API Wrapper, can respond flexibly to change specifications of the Twitter API.
 * Ruby on Rails like syntax.
 * Almost Twitter REST API are wrapped. However, some API does not support yet.
 * Twitter Streaming API are supported experimentally.
@@ -17,6 +17,7 @@ Problems
 
 * Some REST API are not supported.
 * Unstable
+* No documents
 
 Requirement
 -------------
@@ -86,10 +87,10 @@ Making `oauth_key`
 
 Eyedrops, the interactive Pupil
 
-  > eyedrops -h
-  > eyedrops -u [name] -i
-  eyedrops> twitter.timeline :count => 10
-  ...
+	> eyedrops -h
+	> eyedrops -u [name] -i
+	eyedrops> twitter.timeline :count => 10
+	...
 
 Contributing to pupil
 -------------

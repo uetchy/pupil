@@ -6,7 +6,7 @@ Pupil はRuby 1.9.xのための"怠惰"なTwitter APIライブラリです。
 フューチャー
 -------------
 
-* Pupilは動的なAPIラッパーであり、Twitter APIの仕様変更に柔軟に対応することができます
+* Pupilは動的なTwitterAPIラッパーであり、APIの突然の仕様変更に柔軟に対応することができます
 * Ruby on Railsライクな直感的で書きやすい文法
 * 殆どのREST APIをサポートしていますが、一部のAPIはサポートされていません
 * Twitter Streaming APIをサポート
@@ -16,6 +16,8 @@ Pupil はRuby 1.9.xのための"怠惰"なTwitter APIライブラリです。
 -------------
 
 * 一部のAPIをサポートしていません
+* 不安定です
+* ドキュメントがありません（誰か書いて！）
 
 動作環境
 -------------
@@ -85,10 +87,10 @@ Streaming API を使ってみる
 
 Eyedrops, the interactive Pupil
 
-  > eyedrops -h
-  > eyedrops -u [name] -i
-  eyedrops> twitter.timeline :count => 10
-  ...
+	> eyedrops -h
+	> eyedrops -u [name] -i
+	eyedrops> twitter.timeline :count => 10
+	...
 
 協力
 -------------

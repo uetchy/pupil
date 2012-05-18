@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
 
-require "pp"
-$LOAD_PATH << File.join(File.dirname(File.expand_path(__FILE__)), "../")
-require "lib/pupil"
-require "lib/pupil/keygen"
+require "pupil"
+require "pupil/keygen"
 require "yaml"
 require "fileutils"
 require "readline"

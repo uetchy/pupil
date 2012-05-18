@@ -1,3 +1,10 @@
+0.4.0
+----------------
+
+* Added new commandline tool.
+  "Eyedrops, the interactive twitter with Pupil"
+* Pupil::Keygen are supported readline.
+
 0.3.3
 ----------------
 

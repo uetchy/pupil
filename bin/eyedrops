@@ -1,10 +1,23 @@
 #!/usr/bin/env ruby
+# coding: utf-8
 
 require "pupil"
 require "pupil/keygen"
 require "yaml"
 require "fileutils"
 require "readline"
+require "optparse"
+require "pp"
+
+class String
+  def undent
+    gsub /^.{#{slice(/^ +/).length}}/, ''
+  end
+end
+
+class Eyedrops
+  VERSION = "1.0"
+end
 
 class Credentials
   attr_accessor :credentials
@@ -18,7 +31,7 @@ class Credentials
   def save
     YAML.dump(@credentials, File.open(@credentials_file, "w"))
   end
-  
+
   def create
     token = Pupil::Keygen.new.interactive
     @credentials ||= Hash.new
@@ -26,6 +39,25 @@ class Credentials
     self.save
     return token
   end
+end
+
+def display_help
+  puts <<-EOD.undent
+  Usage: eyedrops [OPTIONS]
+  
+  eyedrops> twitter #=> Prepared Pupil instance
+
+  options:
+    -i, --inspect\tDisplay inspected results
+    -a name, --account name\tSign-in account name
+    -h, --help\tShow help
+    -v, --version\tShow version
+
+  eyedrops commands:
+    help\tShow help
+    quit\tExit eyedrops
+    show-account\tDisplay active account
+  EOD
 end
 
 # Initialize
@@ -40,23 +72,48 @@ unless cred.credentials
   cred.create
 end
 
-puts "Eyedrops, the interactive twitter with Pupil #{Pupil::VERSION}"
-
-num = 1
-cred.credentials.keys.each do |name|
-  puts "#{num}. #{name}"
-  num += 1
+ProgramConfig = Hash.new
+OptionParser.new do |opts|
+  opts.on("-i", "--inspect") do
+    ProgramConfig[:inspect] = true
+  end
+  opts.on("-u", "--user [USER]") do |user|
+    ProgramConfig[:user] = user
+  end
+  opts.on("-h", "--help") do
+    display_help
+    exit
+  end
+  opts.on("-v", "--version") do
+    puts "Eyedrops #{Eyedrops::VERSION} with Pupil-#{Pupil::VERSION}"
+    exit
+  end
+  opts.parse!(ARGV)
 end
-puts "#{num}. Add Account"
-sel = Readline.readline("Choose account: ", false).to_i
-if sel == cred.credentials.keys.size + 1
-  cred.create
-  sel = cred.credentials.keys.size
+
+puts "Eyedrops, the interactive Pupil | Version: Eyedrops-#{Eyedrops::VERSION} with Pupil-#{Pupil::VERSION}"
+
+# Account selecting
+if ProgramConfig[:user]
+  account = ProgramConfig[:user]
+else
+  num = 1
+  cred.credentials.keys.each do |name|
+    puts "#{num}. #{name}"
+    num += 1
+  end
+  puts "#{num}. Add Account"
+  sel = Readline.readline("Choose account: ", false).to_i
+  if sel == cred.credentials.keys.size + 1
+    cred.create
+    sel = cred.credentials.keys.size
+  end
+  account = cred.credentials.keys[sel-1]
 end
 
 puts "Preparing Pupil instance..."
-pupil = Pupil.new(cred.credentials[cred.credentials.keys[sel-1]])
-puts "Signed with @#{cred.credentials.keys[sel-1]}"
+twitter = Pupil.new(cred.credentials[account])
+puts "Signed with @#{account}"
 
 while(true)
   begin
@@ -69,26 +126,12 @@ while(true)
 
     case command.to_sym
     when :help
-      puts <<-'EOD'
-      ### External Commands ###
-      help - Now you typed it.
-      exit|quit - Exit eyedrops.
-      
-      ### Examples ###
-      eyedrops> puts pupil.profile.id
-      237079012
-      => nil
-      eyedrops> pupil.timeline :count => 5
-      #<Pupil::Status:0x007fafb34b5720>
-      #<Pupil::Status:0x007fafb34b56f8>
-      #<Pupil::Status:0x007fafb34b56d0>
-      #<Pupil::Status:0x007fafb34b56a8>
-      #<Pupil::Status:0x007fafb34b5680>
-      => nil
-      EOD
+      display_help
+    when :"show-account"
+      puts "Signed with @#{account}"
     else
       result = eval(line)
-      puts "=> #{result.inspect}"
+      puts "=> #{result.inspect}" if ProgramConfig[:inspect]
     end
   rescue => exception
     puts exception

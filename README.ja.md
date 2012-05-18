@@ -6,9 +6,11 @@ Pupil はRuby 1.9.xのための"怠惰"なTwitter APIライブラリです。
 フューチャー
 -------------
 
-* 殆どのREST APIをサポートしていますが、一部のAPIはサポートされていません。
-* Twitter Streaming APIを実験的にサポート
-* Rubyライクな直感的で書きやすい文法
+* Pupilは動的なAPIラッパーであり、Twitter APIの仕様変更に柔軟に対応することができます
+* Ruby on Railsライクな直感的で書きやすい文法
+* 殆どのREST APIをサポートしていますが、一部のAPIはサポートされていません
+* Twitter Streaming APIをサポート
+* コマンドラインからPupilを自由にテスト出来るEyedropsコマンド
 
 問題
 -------------
@@ -38,7 +40,7 @@ Pupil はRuby 1.9.xのための"怠惰"なTwitter APIライブラリです。
 		:access_token_secret => "something"
 	}
   
-	pupil = Pupil.new oauth_key
+	pupil = Pupil.new(oauth_key)
 	
 	# リプライが含まれないタイムラインを取得する
 	pupil.timeline :count => 50, :exclude => :replies
@@ -79,7 +81,14 @@ Streaming API を使ってみる
 	require "pupil/keygen"
 	
 	keygen = Pupil::Keygen.new
-	keygen.interactive #=> インタラクティブにoauth_keyを生成
+	token = keygen.interactive #=> インタラクティブにoauth_keyを生成
+
+Eyedrops, the interactive Pupil
+
+  > eyedrops -h
+  > eyedrops -u [name] -i
+  eyedrops> twitter.timeline :count => 10
+  ...
 
 協力
 -------------

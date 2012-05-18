@@ -1,8 +1,13 @@
+0.4.1
+----------------
+
+* Eyedrops v1.0 released!
+
 0.4.0
 ----------------
 
 * Added new commandline tool.
-  "Eyedrops, the interactive twitter with Pupil"
+  "Eyedrops, the interactive Pupil"
 * Pupil::Keygen are supported readline.
 
 0.3.3

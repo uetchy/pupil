@@ -100,5 +100,5 @@ Streaming API を使ってみる
 ライセンス
 -------------
 
-Copyright (c) 2011 おおあめ. LICENSE.txt を見て詳しい情報を得てください。
+Copyright (c) 2011 おおあめ. LICENSE を見て詳しい情報を得てください。
 

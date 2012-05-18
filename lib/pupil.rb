@@ -3,6 +3,7 @@
 $LOAD_PATH << File.dirname(File.expand_path(__FILE__)) if RUBY_VERSION >= "1.9.0"
 require "pupil/essentials"
 require "pupil/base"
+require "pupil/version"
 require "pupil/schemes"
 require "pupil/general"
 require "pupil/account"

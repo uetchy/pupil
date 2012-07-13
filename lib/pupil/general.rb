@@ -3,21 +3,28 @@ class Pupil
     target, source = opts.to_a.first
     case target
     when :users
-      response = self.get("/1/users/lookup.json", {guess_parameter(source[0]) => source.join(",")}.update(option))
-      return false unless response
       users = Array.new
-      response.each do |element|
-        user = User.new(element, @access_token)
-        users << user
+      source.each_slice(100) do |sliced|
+        response = self.get("/1/users/lookup.json", {guess_parameter(sliced[0]) => sliced.join(",")}.update(option))
+        return false unless response
+        response.each do |element|
+          user = User.new(element, @access_token)
+          users << user
+        end
       end
+      
       return users
     when :friendships
-      response = self.get("/1/friendships/lookup.json", {guess_parameter(source[0]) => source.join(",")}.update(option))
-      return false unless response
       fs = Array.new
-      response.each do |element|
-        fs << element
+      source.each_slice(100) do |sliced|
+        response = self.get("/1/friendships/lookup.json", {guess_parameter(sliced[0]) => sliced.join(",")}.update(option))
+        return false unless response
+
+        response.each do |element|
+          fs << element
+        end
       end
+      
       return fs
     else
       raise ArgumentError, "#{target} is invalid parameter"

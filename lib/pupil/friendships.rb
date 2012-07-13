@@ -9,6 +9,17 @@ class Pupil
     end
     return ids
   end
+  
+  alias_method :following_ids, :friends_ids
+  
+  def friends(name=@screen_name)
+    name ||= self.profile.screen_name
+    ids = self.friends_ids(name)
+    users = self.lookup :users => ids
+    return users
+  end
+  
+  alias_method :following, :friends
 
   def followers_ids(name=@screen_name)
     name ||= self.profile.screen_name
@@ -19,6 +30,13 @@ class Pupil
       ids << element
     end
     return ids
+  end
+  
+  def followers(name=@screen_name)
+    name ||= self.profile.screen_name
+    ids = self.followers_ids(name)
+    users = self.lookup :users => ids
+    return users
   end
   
   def no_retweet_ids()

@@ -140,8 +140,8 @@ class Pupil
     return response
   end
   
-  def status(status_id)
-    response = self.get("/statuses/show/#{status_id}.json")
+  def status(status_id, param={})
+    response = self.get("/statuses/show/#{status_id}.json", param)
     return false unless response
     status = Status.new(response, @access_token)
     return status

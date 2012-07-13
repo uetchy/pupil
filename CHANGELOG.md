@@ -1,3 +1,9 @@
+0.5.0
+----------------
+
+* New method: Pupil#followers, Pupil#friends
+* Some bug fixed
+
 0.4.1
 ----------------
 

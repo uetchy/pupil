@@ -80,6 +80,7 @@ class Pupil
     end
   end
   
+  alias_method "friendships?", "friendship?"
   alias_method "relationship?", "friendship?"
   alias_method "friendships_exists?", "friendship?"
   

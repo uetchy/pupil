@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pupil (0.3.2)
+    pupil (0.6)
       json
       oauth
 

@@ -4,6 +4,8 @@
 # pupil_spec require PUPIL_TESTKEY in spec_testkey.rb
 # You should create file spec_testkey.rb into /spec to define PUPIL_TESTKEY with Pupil key.
 
+require "pp"
+
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe Pupil, "が #verify_credentials を呼ぶ時は" do
@@ -35,15 +37,15 @@ end
 describe Pupil, "が #mentions を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @mentions = pupil.mentions :count => 10
+    @mentions = pupil.mentions :count => 1
   end
   
   it "Array型を返すこと" do
     @mentions.class.should == Array
   end
   
-  it "sizeが50であること" do
-    @mentions.size.should == 10
+  it "sizeが1であること" do
+    @mentions.size.should == 1
   end
 end
 

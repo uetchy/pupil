@@ -50,7 +50,7 @@ class Pupil
         raise NetworkError, vars
       end
       result = JSON.parse(response)
-      return (result["error"].nil? rescue true)? result : false
+      return (result["errors"].nil? rescue true)? result : false
     end
 
     def post(url, param={})
@@ -61,7 +61,7 @@ class Pupil
         raise NetworkError, vars
       end
       result = JSON.parse(response)
-      return (result["error"].nil? rescue true)? result : false
+      return (result["errors"].nil? rescue true)? result : false
     end
   end
 end

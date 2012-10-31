@@ -52,7 +52,7 @@ end
 describe Pupil, "が #user_timeline を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @user_timeline = pupil.user_timeline pupil.screen_name
+    @user_timeline = pupil.user_timeline pupil.profile.screen_name
   end
   
   it "Array型を返すこと" do
@@ -63,8 +63,8 @@ end
 describe Pupil, "が #friendship? を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @nonfriendship = pupil.friendship? pupil.screen_name, KNOWN_NONFOLLOWED_USER
-    @friendship = pupil.friendship? pupil.screen_name, KNOWN_USER
+    @nonfriendship = pupil.friendship? pupil.profile.screen_name, KNOWN_NONFOLLOWED_USER
+    @friendship = pupil.friendship? pupil.profile.screen_name, KNOWN_USER
   end
   
   it "フォロー関係に無い場合はFalseClass型を返すこと" do

@@ -22,7 +22,7 @@ end
 describe Pupil, "が #home_timeline を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @home_timeline = pupil.home_timeline :count => 50
+    @home_timeline = pupil.home_timeline :count => 20
   end
   
   it "Array型を返すこと" do
@@ -30,7 +30,7 @@ describe Pupil, "が #home_timeline を呼ぶ時は" do
   end
   
   it "sizeが50であること" do
-    @home_timeline.size.should == 50
+    @home_timeline.size.should == 20
   end
 end
 

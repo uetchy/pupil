@@ -16,6 +16,5 @@ pkg
 rdoc
 spec/reports
 spec/keys/pupil_testkey.rb
-test/tmp
-test/version_tmp
+test/
 tmp

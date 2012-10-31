@@ -2,7 +2,7 @@ class Pupil
   # Verify credentials
   # @return [Pupil::User] User credentials
   def verify_credentials
-    response = self.get("/1/account/verify_credentials.json")
+    response = self.get("/1.1/account/verify_credentials.json")
     user = User.new response
     return user
   end
@@ -12,14 +12,14 @@ class Pupil
   # Rate limit statuses
   # @return [Hash] Rate limit statuses
   def rate_limit
-    response = self.get("/account/rate_limit_status.json")
+    response = self.get("/1.1/account/rate_limit_status.json")
     return response
   end
 
   # End oauth session
   # @return [Hash] Result
   def end_session
-    response = self.post("/account/end_session.json")
+    response = self.post("/1.1/account/end_session.json")
     return response
   end
 

@@ -12,8 +12,6 @@ class Pupil
 
   # @param [Hash] pupil_key
   def initialize key
-    @screen_name = key[:screen_name] || nil
-    
     @consumer = OAuth::Consumer.new(
       key[:consumer_key],
       key[:consumer_secret],
@@ -24,6 +22,8 @@ class Pupil
       key[:access_token],
       key[:access_token_secret]
     )
+
+    @screen_name = key[:screen_name] || self.profile.screen_name
   end
   
   include Essentials

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # -*- coding: utf-8 -*-
 
 ### WARNING ###
@@ -76,70 +78,6 @@ describe Pupil, "が #friendship? を呼ぶ時は" do
   end
 end
 
-describe Pupil, "が #follow を呼ぶ時は" do
-  before do
-    pupil = Pupil.new PUPIL_TESTKEY
-    @follow = pupil.follow KNOWN_NONFOLLOWED_USER
-    @follow_fail = pupil.follow UNKNOWN_USER
-  end
-  
-  it "フォローに成功した場合はPupil::User型を返すこと" do
-    @follow.class.should == Pupil::User
-  end
-  
-  it "フォローに失敗した場合はFalseClass型を返すこと" do
-    @follow_fail.class.should == FalseClass
-  end
-end
-
-describe Pupil, "が #unfollow を呼ぶ時は" do
-  before do
-    pupil = Pupil.new PUPIL_TESTKEY
-    @unfollow = pupil.unfollow KNOWN_NONFOLLOWED_USER
-    @unfollow_fail = pupil.unfollow UNKNOWN_USER
-  end
-  
-  it "成功した場合はPupil::User型を返すこと" do
-    @unfollow.class.should == Pupil::User
-  end
-  
-  it "失敗した場合にはFalseClassを返すこと" do
-    @unfollow_fail.class.should == FalseClass
-  end
-end
-
-describe Pupil, "が #block を呼ぶ時は" do
-  before do
-    pupil = Pupil.new PUPIL_TESTKEY
-    @block = pupil.block KNOWN_NONFOLLOWED_USER
-    @block_fail = pupil.block UNKNOWN_USER
-  end
-  
-  it "成功した場合はPupil::User型を返すこと" do
-    @block.class.should == Pupil::User
-  end
-  
-  it "失敗した場合にはFalseClassを返すこと" do
-    @block_fail.class.should == FalseClass
-  end
-end
-
-describe Pupil, "が #unblock を呼ぶ時は" do
-  before do
-    pupil = Pupil.new PUPIL_TESTKEY
-    @unblock = pupil.unblock KNOWN_NONFOLLOWED_USER
-    @unblock_fail = pupil.unblock UNKNOWN_USER
-  end
-  
-  it "成功した場合はPupil::User型を返すこと" do
-    @unblock.class.should == Pupil::User
-  end
-  
-  it "失敗した場合にはFalseClassを返すこと" do
-    @unblock_fail.class.should == FalseClass
-  end
-end
-
 describe Pupil, "が #blocking を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
@@ -151,17 +89,17 @@ describe Pupil, "が #blocking を呼ぶ時は" do
   end
 end
 
-describe Pupil, "が、 #search を呼ぶ時は" do
+describe Pupil, "が #search を呼ぶ時は" do
   before do
     pupil = Pupil.new PUPIL_TESTKEY
-    @search = pupil.search("Twitter", :rpp => 10)
+    @search = pupil.search("Twitter", :rpp => 1)
   end
   
   it "Array型を返すこと" do
     @search.class.should == Array
   end
   
-  it "sizeが10であること" do
-    @search.size.should == 10
+  it "sizeが1であること" do
+    @search.size.should == 1
   end
 end

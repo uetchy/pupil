@@ -5,7 +5,7 @@ class Pupil
     when :users
       users = Array.new
       source.each_slice(100) do |sliced|
-        response = self.get("/1/users/lookup.json", {guess_parameter(sliced[0]) => sliced.join(",")}.update(option))
+        response = self.get("/1.1/users/lookup.json", {guess_parameter(sliced[0]) => sliced.join(",")}.update(option))
         return false unless response
         response.each do |element|
           user = User.new(element, @access_token)
@@ -17,7 +17,7 @@ class Pupil
     when :friendships
       fs = Array.new
       source.each_slice(100) do |sliced|
-        response = self.get("/1/friendships/lookup.json", {guess_parameter(sliced[0]) => sliced.join(",")}.update(option))
+        response = self.get("/1.1/friendships/lookup.json", {guess_parameter(sliced[0]) => sliced.join(",")}.update(option))
         return false unless response
 
         response.each do |element|

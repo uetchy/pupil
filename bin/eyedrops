@@ -7,16 +7,9 @@ require "yaml"
 require "fileutils"
 require "readline"
 require "optparse"
-require "pp"
-
-class String
-  def undent
-    gsub /^.{#{slice(/^ +/).length}}/, ''
-  end
-end
 
 class Eyedrops
-  VERSION = "1.0"
+  VERSION = "1.1"
 end
 
 class Credentials
@@ -42,21 +35,21 @@ class Credentials
 end
 
 def display_help
-  puts <<-EOD.undent
-  Usage: eyedrops [OPTIONS]
-  
-  eyedrops> twitter #=> Prepared Pupil instance
+  puts <<-EOD
+Usage: eyedrops [OPTIONS]
 
-  options:
-    -i, --inspect\tDisplay inspected results
-    -a name, --account name\tSign-in account name
-    -h, --help\tShow help
-    -v, --version\tShow version
+eyedrops> twitter #=> Prepared Pupil instance
 
-  eyedrops commands:
-    help\tShow help
-    quit\tExit eyedrops
-    show-account\tDisplay active account
+options:
+  -i, --inspect\tDisplay inspected results
+  -a name, --account name\tSign-in account name
+  -h, --help\tShow help
+  -v, --version\tShow version
+
+eyedrops commands:
+  help\tShow help
+  quit\tExit eyedrops
+  show-account\tDisplay active account
   EOD
 end
 

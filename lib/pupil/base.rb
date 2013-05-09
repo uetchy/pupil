@@ -1,4 +1,4 @@
-require "rubygems"
+require "rubygems" if RUBY_VERSION < "1.9.0"
 require "net/http"
 require "uri"
 require "oauth"
@@ -8,7 +8,7 @@ class Pupil
   attr_reader :screen_name
   class NetworkError < StandardError ; end
   
-  TWITTER_API_URL = "http://api.twitter.com"
+  TWITTER_API_URL = "https://api.twitter.com"
 
   # @param [Hash] pupil_key
   def initialize key

@@ -1,9 +1,7 @@
 *.gem
 *.rbc
-.bundle
 .config
 .yardoc
-.DS_Store
 *.tmproj
 tmtags
 Gemfile.lock
@@ -17,4 +15,12 @@ rdoc
 spec/reports
 spec/keys/pupil_testkey.rb
 test/
-tmp
+tmp/
+
+# bundler
+/vendor/bundle
+.bundle
+
+# OS specific
+.DS_Store
+Thumbs.db

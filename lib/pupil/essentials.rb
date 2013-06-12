@@ -44,11 +44,13 @@ class Pupil
 
     def get(url, param={})
       param_s = serialize_parameter(param)
+      puts "/1.1/"+url+param_s
       begin
-        response = @access_token.get(url+param_s).body
+        response = @access_token.get("/1.1/"+url+param_s).body
       rescue => vars
         raise NetworkError, vars
       end
+      
       result = JSON.parse(response)
       return (result["errors"].nil? rescue true)? result : false
     end

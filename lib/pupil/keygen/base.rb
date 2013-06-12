@@ -4,6 +4,7 @@ class Pupil
     attr_reader :consumer_secret
     attr_reader :access_token
     attr_reader :access_token_secret
+    TWITTER_API_URL = "https://api.twitter.com"
     class MissingRequiredTokens < StandardError; end
 
     def initialize(opts={})
@@ -13,16 +14,18 @@ class Pupil
       @access_token_secret = opts[:access_token_secret] rescue nil
     end
     
+    def consumer
+      OAuth::Consumer.new(@consumer_key, @consumer_secret, :site => TWITTER_API_URL)
+    end
+    
     def auth_url
       raise MissingRequiredTokens, "Pupil::Keygen#auth_url require consumer_key and consumer_secret" unless @consumer_key || @consumer_secret
-      consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret, :site => 'http://twitter.com')
       request_token = consumer.get_request_token
       return request_token.authorize_url
     end
     
     def issue_token verifier
       raise MissingRequiredTokens, "Pupil::Keygen#issue_token require consumer_key and consumer_secret" unless @consumer_key || @consumer_secret
-      consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret, :site => 'http://twitter.com')
       request_token = consumer.get_request_token
       access_token = request_token.get_access_token(:oauth_verifier => verifier)
       @access_token = access_token.token
@@ -44,8 +47,6 @@ class Pupil
       @consumer_key = Readline.readline("Enter OAuth Consumer Key: ", true) unless @consumer_key
       print  unless @consumer_secret
       @consumer_secret = Readline.readline("Enter OAuth Consumer Secret: ", true) unless @consumer_secret
-
-      consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret, :site => 'http://twitter.com')
 
       request_token = consumer.get_request_token
 

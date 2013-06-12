@@ -2,7 +2,7 @@ class Pupil
   # Verify credentials
   # @return [Pupil::User] User credentials
   def verify_credentials
-    response = self.get("/1.1/account/verify_credentials.json")
+    response = self.get("account/verify_credentials.json")
     user = User.new response
     return user
   end
@@ -12,14 +12,14 @@ class Pupil
   # Rate limit statuses
   # @return [Hash] Rate limit statuses
   def rate_limit
-    response = self.get("/1.1/account/rate_limit_status.json")
+    response = self.get("account/rate_limit_status.json")
     return response
   end
 
   # End oauth session
   # @return [Hash] Result
   def end_session
-    response = self.post("/1.1/account/end_session.json")
+    response = self.post("account/end_session.json")
     return response
   end
 
@@ -44,10 +44,10 @@ class Pupil
       opt.update({:profile_sidebar_fill => param[:colors][:sidebar_fill]}) if param[:colors][:sidebar_fill]
       oot.update({:profile_text_color => param[:colors][:text]}) if param[:colors][:text]
       param.delete :colors
-      response = self.post("/account/update_profile_colors.json", opt)
+      response = self.post("account/update_profile_colors.json", opt)
       return User.new response if param.size <= 0
     end
-    response2 = self.post("/account/update_profile.json", param)
+    response2 = self.post("account/update_profile.json", param)
     return User.new response2
   end
 end

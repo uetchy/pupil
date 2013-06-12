@@ -23,7 +23,7 @@ class Pupil
       key[:access_token_secret]
     )
 
-    @screen_name = key[:screen_name] || self.profile.screen_name
+    @screen_name = key[:screen_name] || nil
   end
   
   include Essentials

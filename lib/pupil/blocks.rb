@@ -2,7 +2,7 @@ class Pupil
   # @param [Fixnum] id id
   # @return [Pupil::User] response
   def block(param)
-    response = self.post("/1.1/blocks/create.json", {guess_parameter(param) => param})
+    response = self.post("blocks/create.json", {guess_parameter(param) => param})
     
     if response.class == Hash && response["id"]
       return User.new response
@@ -13,7 +13,7 @@ class Pupil
   # @param [Fixnum] id id
   # @return [Pupil::User] response
   def unblock(param)
-    response = self.post("/1.1/blocks/destroy.json", {guess_parameter(param) => param})
+    response = self.post("blocks/destroy.json", {guess_parameter(param) => param})
     
     if response.class == Hash && response["id"]
       return User.new response
@@ -23,7 +23,7 @@ class Pupil
 
   # @return [Array] list of blocking users
   def blocking
-    response = self.get("/1.1/blocks/list.json")
+    response = self.get("blocks/list.json")
     return [] if response["nilclasses"]
     users = Array.new
     response["users"].each do |element|

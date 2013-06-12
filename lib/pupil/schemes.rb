@@ -25,7 +25,7 @@ class Pupil
     
     def reply(sentence, status=nil)
       response = self.post(
-        "/1/statuses/update.json",
+        "statuses/update.json",
         "status"=> "@#{@element[:screen_name]} #{sentence}",
         "in_reply_to_status_id" => status
       )
@@ -44,17 +44,17 @@ class Pupil
     def entities() Pupil::Entities.new(@element["entities"]) rescue nil; end
     
     def destroy(param={})
-      self.post("/1/statuses/destroy/#{@element["id"]}.json", param)
+      self.post("statuses/destroy/#{@element["id"]}.json", param)
     end
     
     alias_method :delete, :destroy
     
     def retweet(param={})
-      self.post("/1/statuses/retweet/#{@element["id"]}.json", param)
+      self.post("statuses/retweet/#{@element["id"]}.json", param)
     end
     
     def retweets(param={})
-      response = self.get("/1/statuses/retweets/#{@element["id"]}.json", param)
+      response = self.get("statuses/retweets/#{@element["id"]}.json", param)
       return false unless response
       statuses = []
       response.each do |status|
@@ -64,7 +64,7 @@ class Pupil
     end
     
     def retweeted_by(param={})
-      response = self.get("/1/statuses/#{@element["id"]}/retweeted_by.json", param)
+      response = self.get("statuses/#{@element["id"]}/retweeted_by.json", param)
       return false unless response
       users = []
       response.each do |user|
@@ -74,7 +74,7 @@ class Pupil
     end
     
     def retweeted_by_user_ids(param={})
-      response = self.get("/1/statuses/#{@element["id"]}/retweeted_by/ids.json", param)
+      response = self.get("statuses/#{@element["id"]}/retweeted_by/ids.json", param)
       return false unless response
       return response
     end
@@ -84,7 +84,7 @@ class Pupil
     def user() Pupil::User.new(@element["user"], @access_token) rescue nil; end
     
     def statuses(param={})
-      response = self.get("/1/lists/statuses.json", {:list_id => @element["id_str"]}.update(param))
+      response = self.get("lists/statuses.json", {:list_id => @element["id_str"]}.update(param))
       return false unless response
       statuses = []
       response.each do |status|
@@ -94,7 +94,7 @@ class Pupil
     end
     
     def subscribers(param={})
-      response = self.get("/1/lists/subscribers.json", {:list_id => @element["id_str"]}.update(param))
+      response = self.get("lists/subscribers.json", {:list_id => @element["id_str"]}.update(param))
       return false unless response
       users = []
       response["users"].each do |user|
@@ -104,13 +104,13 @@ class Pupil
     end
     
     def members(param={})
-      response = self.get("/1/lists/members.json", {:list_id => @element["id_str"]}.update(param))
+      response = self.get("lists/members.json", {:list_id => @element["id_str"]}.update(param))
       return false unless response
       users = []
       response["users"].each do |u|
         user = User.new(u.update("_list_id" => @element["id_str"]), @access_token)
         def user.destroy()
-          response = self.post("/1/lists/members/destroy.json", {:list_id => @element["_list_id"], :user_id => @element["id_str"]})
+          response = self.post("lists/members/destroy.json", {:list_id => @element["_list_id"], :user_id => @element["id_str"]})
         end
         users << user
       end
@@ -118,19 +118,19 @@ class Pupil
     end
     
     def add(param)
-      response = self.post("/1/lists/members/create.json", {:list_id => @element["id_str"], guess_parameter(param) => param})
+      response = self.post("lists/members/create.json", {:list_id => @element["id_str"], guess_parameter(param) => param})
       return List.new(response)
     end
     
     def strike(param, opts={})
-      response = self.post("/1/lists/members/destroy.json", {guess_parameter(param) => param, :list_id => @element["id_str"]}.update(opts))
+      response = self.post("lists/members/destroy.json", {guess_parameter(param) => param, :list_id => @element["id_str"]}.update(opts))
       return response
     end
     
     alias_method :off, :strike
     
     def destroy()
-      response = self.post("/1/lists/destroy.json", {:list_id => @element["id_str"]})
+      response = self.post("lists/destroy.json", {:list_id => @element["id_str"]})
       return List.new(response)
     end
     
@@ -182,7 +182,7 @@ class Pupil
     # @return [Hash] response
     def destroy()
       begin
-        response = self.post("/1/direct_messages/destroy/#{@element["id"]}.json")
+        response = self.post("direct_messages/destroy/#{@element["id"]}.json")
       rescue
         return false
       end

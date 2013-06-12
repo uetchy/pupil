@@ -1,7 +1,7 @@
 class Pupil
   def friends_ids(name=@screen_name)
     name ||= self.profile.screen_name
-    response = self.get("/1.1/friends/ids.json", {guess_parameter(name) => name})
+    response = self.get("friends/ids.json", {guess_parameter(name) => name})
     return false unless response
     ids = []
     response["ids"].each do |element|
@@ -23,7 +23,7 @@ class Pupil
 
   def followers_ids(name=@screen_name)
     name ||= self.profile.screen_name
-    response = self.get("/1.1/followers/ids.json", {guess_parameter(name) => name})
+    response = self.get("followers/ids.json", {guess_parameter(name) => name})
     return false unless response
     ids = []
     response["ids"].each do |element|
@@ -40,13 +40,13 @@ class Pupil
   end
   
   def no_retweet_ids()
-    response = self.get("/1.1/friendships/no_retweet_ids.json")
+    response = self.get("friendships/no_retweet_ids.json")
     return false unless response
     return response
   end
   
   def outgoing(param={})
-    response = self.get("/1.1/friendships/outgoing.json")
+    response = self.get("friendships/outgoing.json")
     return false unless response
     ids = []
     response["ids"].each do |element|
@@ -56,7 +56,7 @@ class Pupil
   end
   
   def incoming(param={})
-    response = self.get("/1.1/friendships/incoming.json")
+    response = self.get("friendships/incoming.json")
     return false unless response
     ids = []
     response["ids"].each do |element|
@@ -71,7 +71,7 @@ class Pupil
   # @return [Boolean] return true if paired users have friendship, or ruturn false
   def friendship?(src, dst)
     param = {"source_#{guess_parameter(src)}" => src, "target_#{guess_parameter(dst)}" => dst}
-    response = self.get("/1.1/friendships/show.json", param)
+    response = self.get("friendships/show.json", param)
     return nil unless response
     if response["relationship"]["source"]["following"] == true && response["relationship"]["target"]["following"] == true then
       return true
@@ -85,7 +85,7 @@ class Pupil
   alias_method "friendships_exists?", "friendship?"
   
   def update_friendships(target, param)
-    response = self.post("/1.1/friendships/update.json", param)
+    response = self.post("friendships/update.json", param)
     return false unless response
     return response
   end

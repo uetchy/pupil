@@ -1,3 +1,8 @@
+0.7
+----------------
+
+* Now Pupil supporting Twitter API 1.1.
+
 0.6.2
 ----------------
 

@@ -10,7 +10,7 @@ class Pupil
   # @option param [Symbol] :exclude #=> [:replies]
   # @option param [Symbol] :contributor_details
   def timeline(param={})
-    response = self.get("/1.1/statuses/home_timeline.json", param)
+    response = self.get("statuses/home_timeline.json", param)
     return false unless response
     statuses = []
     response.each do |element|
@@ -24,7 +24,7 @@ class Pupil
   # @return [Array] Mention
   # @param [Hash] param
   def mentions(param={})
-    response = self.get("/1.1/statuses/mentions_timeline.json", param)
+    response = self.get("statuses/mentions_timeline.json", param)
     return false unless response
     statuses = []
     response.each do |element|
@@ -53,7 +53,7 @@ class Pupil
   #     puts "#{status.user.screen_name}: #{status.text}"
   #   end
   def user_timeline(target, option={})
-    response = self.get("/1.1/statuses/user_timeline.json", {guess_parameter(target) => target}.update(option))
+    response = self.get("statuses/user_timeline.json", {guess_parameter(target) => target}.update(option))
     return false unless response
     statuses = []
     response.each do |element|
@@ -69,7 +69,7 @@ class Pupil
   # @return [Array] Timeline
   # @param [Hash] param
   def public_timeline(param={})
-    response = self.get("/1.1/statuses/public_timeline.json", param)
+    response = self.get("statuses/public_timeline.json", param)
     return false unless response
     statuses = Array.new
     response.each do |element|
@@ -80,7 +80,7 @@ class Pupil
   end
   
   def retweeted_by_me(param={})
-    response = self.get("/1.1/statuses/retweeted_by_me.json", param)
+    response = self.get("statuses/retweeted_by_me.json", param)
     return false unless response
     statuses = Array.new
     response.each do |element|
@@ -91,7 +91,7 @@ class Pupil
   end
   
   def retweeted_to_me(param={})
-    response = self.get("/1.1/statuses/retweeted_to_me.json", param)
+    response = self.get("statuses/retweeted_to_me.json", param)
     return false unless response
     statuses = Array.new
     response.each do |element|
@@ -102,7 +102,7 @@ class Pupil
   end
   
   def retweets_of_me(param={})
-    response = self.get("/1.1/statuses/retweets_of_me.json", param)
+    response = self.get("statuses/retweets_of_me.json", param)
     return false unless response
     statuses = Array.new
     response.each do |element|
@@ -113,7 +113,7 @@ class Pupil
   end
   
   def retweeted_to_user(param={})
-    response = self.get("/1.1/statuses/retweeted_to_user.json", param)
+    response = self.get("statuses/retweeted_to_user.json", param)
     return false unless response
     statuses = Array.new
     response.each do |element|
@@ -124,7 +124,7 @@ class Pupil
   end
   
   def retweeted_by_user(param={})
-    response = self.get("/1.1/statuses/retweeted_by_user.json", param)
+    response = self.get("statuses/retweeted_by_user.json", param)
     return false unless response
     statuses = Array.new
     response.each do |element|
@@ -135,12 +135,12 @@ class Pupil
   end
   
   def oembed(param={})
-    response = self.get("/1.1/statuses/oembed.json", param)
+    response = self.get("statuses/oembed.json", param)
     return response
   end
   
   def status(status_id, param={})
-    response = self.get("/1.1/statuses/show/#{status_id}.json", param)
+    response = self.get("statuses/show/#{status_id}.json", param)
     return false unless response
     status = Status.new(response, @access_token)
     return status
@@ -148,7 +148,7 @@ class Pupil
   
   def update(status, irt='')
     response = self.post(
-      "/1.1/statuses/update.json",
+      "statuses/update.json",
       "status"=> status,
       "in_reply_to_status_id" => irt
     )
@@ -159,7 +159,7 @@ class Pupil
   alias_method :tweet, :update
 
   def destroy(status_id)
-    response = self.post("/1.1/statuses/destroy/#{status_id}.json")
+    response = self.post("statuses/destroy/#{status_id}.json")
     return false unless response
     response
   end

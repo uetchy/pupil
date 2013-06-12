@@ -3,7 +3,7 @@ class Pupil
   # @param [Hash] param
   # @return [Hash] directmessages
   def direct_messages(param = {})
-    response = self.get("/1.1/direct_messages.json", param)
+    response = self.get("direct_messages.json", param)
     return false unless response
     directmessages = Array.new
     response.each do |element|
@@ -18,7 +18,7 @@ class Pupil
   # @param [Hash] param
   # @return [Hash] directmessage you sent
   def sent_direct_messages(param = {})
-    response = self.get("/1.1/direct_messages/sent.json", param)
+    response = self.get("direct_messages/sent.json", param)
     return false unless response
     directmessages = Array.new
     response.each do |element|
@@ -31,7 +31,7 @@ class Pupil
   
   def send_direct_message(sentence, opts)
     raise ArgumentError, ":to parameter not given" unless opts[:to]
-    response = self.post("/1.1/direct_messages/new.json", {:text => sentence, guess_parameter(opts[:to]) => opts[:to]})
+    response = self.post("direct_messages/new.json", {:text => sentence, guess_parameter(opts[:to]) => opts[:to]})
     return false unless response
     response
   end

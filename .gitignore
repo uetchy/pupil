@@ -13,8 +13,6 @@ lib/bundler/man
 pkg
 rdoc
 spec/reports
-spec/keys/pupil_testkey.rb
-test/
 tmp/
 
 # bundler
@@ -24,3 +22,7 @@ tmp/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Testing
+test/
+spec/keys/pupil_testkey.rb
